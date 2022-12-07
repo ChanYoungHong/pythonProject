@@ -1,10 +1,11 @@
-N = int(input())
-timeArray = list(map(int, input().split()))
-resultTime = 0
 
-timeArray.sort()
-for i in range(N):
+n = int(input())
+array = list(map(int, input().split()))
+result = 0
+
+array.sort()
+for i in range(n):
     for j in range(i+1):
-        resultTime += timeArray[j]
+        result += array[j]
 
-print(resultTime)
+print(result)
