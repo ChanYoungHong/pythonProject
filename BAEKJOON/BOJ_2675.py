@@ -7,15 +7,15 @@
 # 4. 각각의 index의 자리를 3번씩 반복 해줘야 한다.
 # 5.
 
-# t = int(input())
-#
-# result = "";
-# for i in range(t):
-#     num, s = input().split()
-#
-#     for j in num:       #              #          0 1 2
-#         result += s[j]                  #         A B C
-#     print(result)
+t = int(input())
+
+result = "";
+for i in range(t):
+    num, s = input().split()
+
+    for j in num:       #              #          0 1 2
+        result += s[j]                  #         A B C
+    print(result)
 
 
 # 블로그 답안
@@ -26,7 +26,7 @@
 #     for i in s:
 #         text += int(num) * i # 처음에 i가 s의 길이만큼 올라가는데 어떻게 같은 문자가 반복이 가능한가 ? 라고 생각 함
 #     print(text)
-
+#
 # a = "charlie"
 # result = ''
 #
