@@ -1,11 +1,10 @@
+def fibbo(n):
 
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 1
 
+    return fibbo(n-1) + fibbo(n-2)
 
-def fibonnaccchi(N):
-    if N <= 1:
-        return N
-    return fibonnaccchi(N-1) + fibonnaccchi(N-2)
-
-
-N = int(input())
-print(fibonnaccchi(10))
+print(fibbo(int(input())))
