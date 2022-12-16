@@ -1,11 +1,11 @@
 n, m = map(int, input().split())
-
 visited = [False] * (n + 1)
 result = []
 
-def rec(d):
 
-    if d == m:
+def recc(deph):
+
+    if deph == m:
         print(' '.join(map(str, result)))
         return
 
@@ -13,8 +13,8 @@ def rec(d):
         if visited[i] == False:
             visited[i] = True
             result.append(i)
-            rec(d+1)
+            recc(deph + 1)
             visited[i] = False
             result.pop()
 
-rec(0)
+recc(0)
