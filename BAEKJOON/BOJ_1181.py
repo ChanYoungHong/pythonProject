@@ -1,19 +1,18 @@
-
 n = int(input())
-array = []
+
+words = []
 
 for i in range(n):
-    word = input()
-    array.append(word)
+    words.append(input())
 
-set_word = list(set(array))
+set_word = list(set(words))
 
 sort_word = []
+
 for i in set_word:
     sort_word.append((len(i), i))
 
-# result = sorted(sort_word)
 sort_word.sort()
 
-for len_word, word in sort_word:
-    print(word)
+for len, i in sort_word:
+    print(i)
