@@ -14,3 +14,4 @@ sum = (sum // len(array))
 
 print(sum)
 print(array[2])
+
