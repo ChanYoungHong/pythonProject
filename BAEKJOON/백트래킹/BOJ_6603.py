@@ -1,4 +1,6 @@
+import sys
 
+input = sys.stdin.readline
 
 def dfs(dep, idx):
 
@@ -11,8 +13,8 @@ def dfs(dep, idx):
         dfs(dep + 1, i + 1)
         result.pop()
 
-
 while True:
+
     array = list(map(int, input().split()))
     k = array[0]
     s = array[1:]
