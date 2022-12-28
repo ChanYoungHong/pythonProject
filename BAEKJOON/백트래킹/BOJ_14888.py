@@ -1,6 +1,3 @@
-# 두 배열 중 하나는 계속 고정이 되어 있어야 함
-# 그래서 한 배열만 dfs으로 계속 값의 교체가 이루어져야 함
-
 n = int(input())
 
 nums = list(map(int, input().split()))
