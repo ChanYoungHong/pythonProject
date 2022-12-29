@@ -4,7 +4,6 @@ input = sys.stdin.readline
 
 result = []
 
-
 def dfs(dep, idx):
     if dep == 6:
         print(*result)
