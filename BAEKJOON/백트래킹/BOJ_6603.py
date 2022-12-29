@@ -2,8 +2,10 @@ import sys
 
 input = sys.stdin.readline
 
-def dfs(dep, idx):
+result = []
 
+
+def dfs(dep, idx):
     if dep == 6:
         print(*result)
         return
@@ -14,12 +16,12 @@ def dfs(dep, idx):
         result.pop()
 
 while True:
-
     array = list(map(int, input().split()))
     k = array[0]
     s = array[1:]
-    result = []
-    dfs(0,0)
+    dfs(0, 0)
     if k == 0:
         exit()
     print()
+
+
