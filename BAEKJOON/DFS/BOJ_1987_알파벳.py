@@ -12,11 +12,11 @@ dy = [0, 0, -1, 1]
 array = set()
 answer = 0
 
-
 def dfs(x, y, cnt):
 
     global answer
     answer = max(answer, cnt)
+
     for i in range(4):
         nx = x + dx[i]
         ny = y + dy[i]
