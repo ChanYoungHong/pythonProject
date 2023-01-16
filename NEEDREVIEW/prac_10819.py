@@ -16,7 +16,7 @@ def DFS(v):
             visit[i] = True
             array.append(condition[i])
             DFS(v+1)
-            array1.pop()
+            array.pop()
             visit[i] = False
 
 DFS(0)
