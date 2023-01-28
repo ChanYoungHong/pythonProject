@@ -4,17 +4,18 @@ input = sys.stdin.readline
 
 n, m = map(int, input().split())
 
-result = []
-def dfs():
+res = []
 
-    if len(result) == m:
-        print(*result)
+
+def dfs(dep):
+    if len(res) == m:
+        print(' '.join(map(str, res)))
         return
 
-    for j in range(1, n + 1):
-        result.append(j)
-        dfs()
-        result.pop()
+    for i in range(1, n + 1):
+        res.append(i)
+        dfs(dep + 1)
+        res.pop()
 
-dfs()
 
+dfs(1)
