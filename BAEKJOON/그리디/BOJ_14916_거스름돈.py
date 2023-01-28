@@ -1,60 +1,37 @@
-'''
-
-
-'''
-
-import sys
-
-input = sys.stdin.readline
-
-n = int(input())
 import sys
 
 input = sys.stdin.readline
 
 n = int(input())
 
-money = [2, 5]
-cnt = 0
+dp = [-1] * 100001
 
-while True:
+dp[2] = dp[5] = 1
+dp[4] = 2
+dp[6] = 3
+dp[7] = 2
+dp[8] = 4
 
-    if n % money[1] == 0:
-        cnt += n // money[1]
-        break
-    elif n % money[0] == 0:
-        n -= money[0]
-        cnt += 1
-    else:
-        n -= money[1]
-        cnt += 1
+for i in range(9, n + 1):
+    dp[i] = min(dp[i - 2], dp[i - 5]) + 1
 
-    if n < 0:
-        break
+print(dp[n])
 
-if n < 0:
-    print(-1)
-else:
-    print(cnt)
-money = [2, 5]
-cnt = 0
-
-while True:
-
-    if n % money[1] == 0:
-        cnt += n // money[1]
-        break
-    elif n % money[0] == 0:
-        n -= money[0]
-        cnt += 1
-    else:
-        n -= money[1]
-        cnt += 1
-
-    if n < 0:
-        break
-
-if n < 0:
-    print(-1)
-else:
-    print(cnt)
+# cnt = 0
+#
+# while True:
+#
+#     if n % 5 == 0:
+#         cnt += n//5
+#         break
+#     elif n % 2 == 0:
+#         n -= 2
+#         cnt += 1
+#     else:
+#         n -= 5
+#         cnt += 1
+#
+# if n < 0:
+#     print(-1)
+# else:
+#     print(cnt)
