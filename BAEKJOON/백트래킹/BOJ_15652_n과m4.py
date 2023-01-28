@@ -12,15 +12,15 @@ n, m = map(int, input().split())
 result = []
 
 
-def dfs(dep):
+def dfs(dep, idx):
     if len(result) == m:
         print(*result)
         return
 
-    for i in range(dep, n+1):
+    for i in range(idx, n + 1):
         result.append(i)
-        dfs(i)
+        dfs(dep, i)
         result.pop()
 
 
-dfs(1)
+dfs(1,1)
