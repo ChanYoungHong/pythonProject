@@ -3,19 +3,20 @@ import sys
 
 input = sys.stdin.readline
 
-def sol(n):
+def solution(n):
 
     if n == 1:
         return 1
     elif n == 2:
         return 2
-    elif n==3:
+    elif n == 3:
         return 4
     else:
-        return sol(n-1)+sol(n-2)+sol(n-3)
+        return solution(n-1) + solution(n-2) + solution(n-3)
 
 n = int(input())
 
-for i in range(n):
-    z = int(input())
-    print(sol(z))
+for _ in range(n):
+    a = int(input())
+    print(solution(a))
+
