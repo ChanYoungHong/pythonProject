@@ -4,6 +4,7 @@ input = sys.stdin.readline
 
 n = int(input())
 result = []
+
 def dfs(dep):
 
     if dep == n:
