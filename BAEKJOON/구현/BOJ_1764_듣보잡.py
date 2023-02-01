@@ -13,7 +13,7 @@ b = set()
 for i in range(m):
     b.add(input().rstrip())
 
-result = sorted(list(a & b))
+result = sorted(list(set(a&b)))
 
 print(len(result))
 for i in result:
