@@ -3,29 +3,29 @@ import sys
 
 input = sys.stdin.readline
 
-n = int(input().rstrip())
+n = int(input())
 nums = list(map(int, input().split()))
 
-dp = [1] * (n+1)
+dp = [1] * n
+
 
 for i in range(n):
     for j in range(i):
+
         if nums[i] > nums[j]:
             dp[i] = max(dp[i], dp[j] + 1)
 
-print(max(dp))
 order = max(dp)
 
-res = []
+result = []
 for i in range(n-1, -1, -1):
-    if dp[i] == order:
-        res.append(nums[i])
+
+    if order == dp[i]:
+        result.append(nums[i])
         order -= 1
-res.reverse()
 
-for i in res:
-    print(i, end = ' ')
+print(len(result))
+result.sort()
 
-
-
-
+for i in result:
+    print(i)
