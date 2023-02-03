@@ -1,9 +1,12 @@
-
 import sys
 
 input = sys.stdin.readline
 
-def solution(n):
+
+''' 
+점화식 - > dp[i] = dp[i-3] + dp[i-2] + dp[i-1]
+'''
+def zzz(n):
 
     if n == 1:
         return 1
@@ -12,11 +15,11 @@ def solution(n):
     elif n == 3:
         return 4
     else:
-        return solution(n-1) + solution(n-2) + solution(n-3)
+        return zzz(n-1) + zzz(n-2) + zzz(n-3)
 
-n = int(input())
+test = int(input())
 
-for _ in range(n):
-    a = int(input())
-    print(solution(a))
+for _ in range(test):
+    te = int(input())
+    print(zzz(te))
 
