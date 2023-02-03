@@ -2,9 +2,11 @@ import sys
 
 input = sys.stdin.readline
 
+
 n = int(input())
 
 dp = [-1] * 5001
+
 dp[3] = dp[5] = 1
 
 for i in range(6, n+1):
