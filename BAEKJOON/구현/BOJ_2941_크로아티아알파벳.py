@@ -1,10 +1,13 @@
+import sys
 
-word = input()
+input = sys.stdin.readline
 
-alb = ['c=', 'c-', 'dz=', 'd-', 'lj', 'nj', 's=', 'z=']
+zz = input().rstrip()
 
-result = []
-for i in alb:
-    word = word.replace(i, "1")
+word = ['c=', 'c-', 'dz=', 'd-', 'lj', 'nj', 's=', 'z=']
 
-print(len(word))
+for i in word:
+
+    zz = zz.replace(i, '*')
+
+print(len(zz))
