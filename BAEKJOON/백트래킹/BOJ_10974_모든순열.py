@@ -3,18 +3,20 @@ import sys
 input = sys.stdin.readline
 
 n = int(input())
+
 result = []
 
-def dfs(dep):
 
-    if dep == n:
+def dfs(start):
+    if len(result) == n:
         print(*result)
         return
 
-    for i in range(1, n+1):
+    for i in range(start, n + 1):
         if i not in result:
             result.append(i)
-            dfs(dep+1)
+            dfs(i)
             result.pop()
 
-dfs(0)
+
+dfs(1)
