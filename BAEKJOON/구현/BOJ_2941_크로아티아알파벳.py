@@ -1,13 +1,15 @@
+
+
 import sys
 
 input = sys.stdin.readline
 
-zz = input().rstrip()
+alb = ['c=', 'c-', 'dz=', 'd-', 'lj', 'nj', 's=', 'z=']
 
-word = ['c=', 'c-', 'dz=', 'd-', 'lj', 'nj', 's=', 'z=']
+word = input().rstrip()
 
-for i in word:
 
-    zz = zz.replace(i, '*')
+for i in alb:
+    word = word.replace(i, '*')
 
-print(len(zz))
+print(len(word))
