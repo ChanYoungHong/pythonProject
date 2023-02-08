@@ -19,7 +19,7 @@ while start <= end:
     total = 0
 
     for i in nums:
-        if i > mid:
+        if i >= mid:
             total += i-mid
 
     if total >= m:
