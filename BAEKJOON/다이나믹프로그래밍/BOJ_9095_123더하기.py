@@ -2,24 +2,17 @@ import sys
 
 input = sys.stdin.readline
 
+n = int(input())
+dp = [0] * 11
 
-''' 
-점화식 - > dp[i] = dp[i-3] + dp[i-2] + dp[i-1]
-'''
-def zzz(n):
 
-    if n == 1:
-        return 1
-    elif n == 2:
-        return 2
-    elif n == 3:
-        return 4
-    else:
-        return zzz(n-1) + zzz(n-2) + zzz(n-3)
+dp[1] = 1
+dp[2] = 2
+dp[3] = 4
 
-test = int(input())
+for i in range(4, 11):
+    dp[i] = dp[i-3] + dp[i-2] + dp[i-1]
 
-for _ in range(test):
-    te = int(input())
-    print(zzz(te))
+for i in range(n):
+    print(dp[int(input())])
 
