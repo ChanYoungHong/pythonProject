@@ -1,17 +1,17 @@
-
 import sys
 
 input = sys.stdin.readline
 
-n = int(input())
+t = int(input())
 
-nums = []
-for _ in range(n):
-    z = int(input().rstrip())
+ans = []
+for i in range(t):
 
-    if z == 0:
-        nums.pop()
+    a = int(input())
+
+    if a == 0:
+        ans.pop()
     else:
-        nums.append(z)
+        ans.append(a)
 
-print(sum(nums))
+print(sum(ans))
