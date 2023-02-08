@@ -1,20 +1,42 @@
+
 import sys
 
 input = sys.stdin.readline
 
 n = int(input())
-array = list(map(int, input().split()))
+num = list(map(int, input().split()))
 
 for i in range(n-1, 0, -1):
-    if array[i] > array[i-1]: # 4 > 3
-        for j in range(n-1, n-2, -1):
-            if array[i-1] < array[j]:
-                array[i-1], array[j] = array[j], array[i-1]
-                array = array[:i] + sorted(array[i:])
-                print(*array)
+
+    if num[i] > num[i-1]:
+        for j in range(n-1, 0, -1):
+            if num[i-1] < num[j]:
+                num[i-1], num[j] = num[j], num[i-1]
+                num = num[:i] + sorted(num[i:])
+                print(*num)
                 exit(0)
 
 print(-1)
+import sys
+
+input = sys.stdin.readline
+
+n = int(input())
+num = list(map(int, input().split()))
+
+for i in range(n-1, 0, -1):
+
+    if num[i] > num[i-1]:
+        for j in range(n-1, 0, -1):
+            if num[i-1] < num[j]:
+                num[i-1], num[j] = num[j], num[i-1]
+                num = num[:i] + sorted(num[i:])
+                print(*num)
+                exit(0)
+
+print(-1)
+
+
 
 
 
