@@ -18,7 +18,7 @@ def dfs(start):
 
     for i in range(start, n):
         result.append(nums[i])
-        dfs(i+1)
+        dfs(start+1)
         result.pop()
 
 dfs(0)
