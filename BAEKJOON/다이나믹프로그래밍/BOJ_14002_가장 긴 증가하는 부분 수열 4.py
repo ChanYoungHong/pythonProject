@@ -1,27 +1,28 @@
+
 import sys
 
 input = sys.stdin.readline
 
 n = int(input())
-num = list(map(int, input().split()))
+nums = list(map(int, input().split()))
 
 dp = [1] * n
 
 for i in range(n):
     for j in range(i):
 
-        if num[i] > num[j]:
-            dp[i] = max(dp[i], dp[j] + 1)
+        if nums[i] > nums[j]:
+            dp[i] = max(dp[i], dp[j]+1)
 
 print(max(dp))
 
 order = max(dp)
-answer = []
-for i in range(n - 1, -1, -1):
+res = []
+for k in range(n-1, -1, -1):
 
-    if dp[i] == order:
-        answer.append(num[i])
+    if dp[k] == order:
         order -= 1
+        res.append(nums[k])
 
-answer.sort()
-print(*answer)
+res.sort()
+print(*res)
