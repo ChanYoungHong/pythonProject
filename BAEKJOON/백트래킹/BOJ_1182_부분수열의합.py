@@ -1,8 +1,10 @@
+
 import sys
+sys.setrecursionlimit(10**7)
 
 input = sys.stdin.readline
 
-n, m = map(int, input().split())
+n, m = map(int,input().split())
 nums = list(map(int, input().split()))
 
 result = []
@@ -21,3 +23,6 @@ def dfs(start):
 
 dfs(0)
 print(cnt)
+
+
+
