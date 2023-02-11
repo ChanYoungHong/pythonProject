@@ -12,22 +12,22 @@ pizza = list(map(int, input().split()))
 2. 그 인덱스의 위치값을 반환하면 될 듯.
 '''
 
-
 for i in range(n-1):
+
     if oven[i] < oven[i+1]:
         oven[i+1] = oven[i]
 
-
 dep = 0
-for j in range(n-1, -1, -1):
+for i in range(n-1,-1,-1):
 
-    if pizza[dep] > oven[j]:
-        continue
+    if pizza[dep] <= oven[i]:
+        dep += 1
 
-    dep += 1
 
-    if dep >= m:
-        print(j+1)
+    if dep == m:
+        print(i+1)
         sys.exit()
 
 print(0)
+
+
