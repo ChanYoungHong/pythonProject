@@ -9,22 +9,21 @@ import sys
 input = sys.stdin.readline
 
 n, m = map(int, input().split())
-nums = list(map(int, input().split()))
+num = list(map(int, input().split()))
 
-inter_sum = 0
 end = 0
+temp_num = 0
 cnt = 0
 
 for i in range(n):
 
-    while inter_sum < m and end < n:
-
-        inter_sum += nums[end]
+    while temp_num < m and end < n:
+        temp_num += num[end]
         end += 1
 
-    if inter_sum == m:
+    if temp_num == m:
         cnt += 1
 
-    inter_sum -= nums[i]
+    temp_num -= num[i]
 
 print(cnt)
