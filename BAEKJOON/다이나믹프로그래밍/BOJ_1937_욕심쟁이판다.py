@@ -1,12 +1,10 @@
 import sys
+sys.setrecursionlimit(10**6)
 
 input = sys.stdin.readline
-sys.setrecursionlimit(10 ** 6)
 
 n = int(input())
-
 graph = [list(map(int, input().split())) for _ in range(n)]
-
 dp = [[0] * n for _ in range(n)]
 
 dx = [-1,1,0,0]
@@ -17,9 +15,7 @@ def dfs(x,y):
 
     if dp[x][y]:
         return dp[x][y]
-
     dp[x][y] = 1
-
     for i in range(4):
         nx = x + dx[i]
         ny = y + dy[i]
@@ -36,7 +32,3 @@ for i in range(n):
         result = max(result, dfs(i,j))
 
 print(result)
-
-
-
-
