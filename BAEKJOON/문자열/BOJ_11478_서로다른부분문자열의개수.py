@@ -5,11 +5,10 @@ input = sys.stdin.readline
 
 word = input().rstrip()
 
-res = set()
-
+result = set()
 for i in range(len(word)):
     for j in range(i, len(word)):
+        result.add(word[i:j+1])
 
-        res.add(word[i:j+1])
 
-print(len(res))
+print(len(result))
