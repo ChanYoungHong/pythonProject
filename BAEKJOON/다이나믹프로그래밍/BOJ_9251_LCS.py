@@ -1,15 +1,15 @@
 
+
 import sys
 
 input = sys.stdin.readline
 
 word1 = input()
 word2 = input()
+
 a, b = len(word1), len(word2)
 
 dp = [[0] * (b+1) for _ in range(a+1)]
-
-
 
 for i in range(1, a):
     for j in range(1, b):
@@ -19,8 +19,4 @@ for i in range(1, a):
         else:
             dp[i][j] = max(dp[i-1][j], dp[i][j-1])
 
-
 print(dp[a-1][b-1])
-
-
-
