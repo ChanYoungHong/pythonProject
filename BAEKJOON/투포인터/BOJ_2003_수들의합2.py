@@ -1,29 +1,24 @@
-'''
-
-n < 10,000 보다 작으니깐 투 포인터가 적합 함
-
-'''
-
 import sys
 
 input = sys.stdin.readline
 
-n, m = map(int, input().split())
-num = list(map(int, input().split()))
+n,m = map(int, input().split())
+nums = list(map(int, input().split()))
 
+inter_num = 0
 end = 0
-temp_num = 0
 cnt = 0
+
 
 for i in range(n):
 
-    while temp_num < m and end < n:
-        temp_num += num[end]
+    while inter_num < m and end < n:
+        inter_num += nums[end]
         end += 1
 
-    if temp_num == m:
+    if inter_num == m:
         cnt += 1
 
-    temp_num -= num[i]
+    inter_num -= nums[i]
 
 print(cnt)
