@@ -1,13 +1,17 @@
 
 import sys
 
+input = sys.stdin.readline
+
 n = int(input())
 
 answer = 0
+
+cnt = 0
 for _ in range(n):
+
     word = input()
 
-    cnt = 0
     for i in range(len(word)-1):
 
         if word[i] != word[i+1]:
@@ -20,6 +24,5 @@ for _ in range(n):
         answer += 1
 
 print(answer)
-
 
 
