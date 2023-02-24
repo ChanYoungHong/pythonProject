@@ -1,17 +1,19 @@
 import sys
 
-input = sys.stdin.readline
+input =sys.stdin.readline
 
 word = input().rstrip()
-dp = [0] * 10
+num = [0] * 9
+
 for i in word:
 
     idx = int(i)
 
-    if idx == 6:
-        idx = 9
+    if idx == 9:
+        idx = 6
 
-    dp[idx] += 1
-dp[9] = (dp[9] + 1) // 2
+    num[idx] += 1
 
-print(max(dp))
+num[6] = (num[6] + 1) // 2
+
+print(max(num))
