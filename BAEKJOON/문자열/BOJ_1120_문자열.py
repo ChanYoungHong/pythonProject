@@ -2,28 +2,22 @@ import sys
 
 input = sys.stdin.readline
 
-a, b = input().split()
-answer = []
+word1, word2 = input().rstrip().split()
 
-for i in range(len(b) - len(a) + 1):
+a, b = len(word1), len(word2)
+
+res =[ ]
+
+cnt = 0
+for i in range(b - a + 1): # 0 1
+    for j in range(a): # 0 1 2 3 4 5
+
+        if word1[j] != word2[i+j]:
+            # print('word1 : ', word1[i+j], end = '  ')
+            # print('word2 : ', word2[i+j])
+            cnt += 1
+    res.append(cnt)
     cnt = 0
 
-    for j in range(len(a)):
-        if a[j] != b[i+j]:
-            cnt += 1
-    answer.append(cnt)
-
-print(min(answer))
-print(answer)
-
-# a, b = len(word1), len(word2)
-# cnt = 0
-#
-# result = []
-# for i in range(a):
-#     for j in range(b):
-#
-#         if word1[i] != word2[j]:
-#             result.append()
-#
-# print(result)
+print(min(res))
+print(res)
