@@ -15,16 +15,15 @@ from collections import deque
 input = sys.stdin.readline
 
 n, m = map(int, input().split())
-maps = [[] for i in range(n + 1)]
+graph = [[] for _ in range(n + 1)]
 
 for _ in range(m):
-    a, b, c = map(int, input().split())
-    maps[a].append([b, c])
-    maps[b].append([a, c])
+    a,b,c, = map(int, input().split())
+    graph[a].append((b,c))
+    graph[b].append((a,c))
 
 start, end = map(int, input().split())
 low, high = 1, 1000000000
-
 
 def bfs(mid):
 
@@ -38,24 +37,22 @@ def bfs(mid):
         if now == end:
             return True
 
-        for node, cost in maps[now]:
+        for node, cost in graph[now]:
             if not visited[node] and mid <= cost:
                 q.append(node)
                 visited[node] = True
 
     return False
 
-
 ans = 0
 while low <= high:
 
     mid = (low + high) // 2
-    visited = [False for _ in range(n + 1)]
+    visited = [False for _ in range(n+1)]
 
     if bfs(mid):
         ans = max(ans, mid)
         low = mid + 1
-
     else:
         high = mid - 1
 
