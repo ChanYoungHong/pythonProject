@@ -10,40 +10,35 @@ import sys
 input = sys.stdin.readline
 
 n = int(input())
-result = sys.maxsize
-# graph = list(map(int, input().split()))
-array = []
+graph = [list(map(int, input().split())) for _ in range(n)]
 
-for _ in range(n):
-    array.append(list(map(int, input().split())))
+res = sys.maxsize
 
-# dx = [-1,1,0,0]
-# dy = [0,0,-1,1]
+visit = [False] * n
 
-# visited = [[False] * (n) for _ in range(n)]
 
-visited = [False] * (n+1)
-result = 0
 def dfs(dep, idx):
-    global result
+    global res
 
-    if dep == (n//2):
-        start, link = 0,0
+    if dep == (n // 2):
+        start, link = 0, 0
 
-        for i in range(n):
-            for j in range(i+1, n):
+        for i in range(n): # 0 1 2 3
+            for j in range(i + 1, n):
 
-                if visited[i] and visited[j]:
-                    start += (array[i][j] + array[j][i])
-                elif not visited[i] and not visited[j]:
-                    link += (array[i][j] + array[j][i])
-        result = min(result, abs(start - link))
+                if visit[i] and visit[j]:
+                    start += (graph[i][j] + graph[j][i])
+                elif not visit[i] and not visit[j]:
+                    link += (graph[i][j] + graph[j][i])
+
+        res = min(res, abs(start - link))
 
     for i in range(idx, n):
-        if not visited[i]:
-            visited[i] = True
+        if not visit[i]:
+            visit[i] = True
             dfs(dep + 1, i + 1)
-            visited[i] = False
+            visit[i] = False
+
 
 dfs(0, 0)
-print(result)
+print(res)
