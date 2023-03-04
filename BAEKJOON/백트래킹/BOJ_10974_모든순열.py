@@ -1,17 +1,19 @@
 import sys
 
+input = sys.stdin.readline
+
 n = int(input())
-result = []
+
+res = []
 def dfs():
 
-    if len(result) == n:
-        print(*result)
-        return
+    if len(res) == n:
+        print(*res)
 
     for i in range(1, n+1):
-        if i not in result:
-            result.append(i)
+        if i not in res:
+            res.append(i)
             dfs()
-            result.pop()
+            res.pop()
 
 dfs()
