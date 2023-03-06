@@ -4,29 +4,27 @@ input = sys.stdin.readline
 
 n, m = map(int, input().split())
 
-ranking = []
-standard = []
-for _ in range(n):
+tempArr = []
+for i in range(n):
 
-    arr = list(map(int, input().rstrip().split()))
+    graph = list(map(int, input().split()))
 
-    if arr[0] != m:
-        ranking.append(arr)
+    if graph[0] != m:
+        tempArr.append(graph)
     else:
-        standard = arr
-        # standard.append(arr)
+        standard = graph
 
 cnt = 1
+for i in range(len(tempArr)):
 
-for j in range(len(ranking)):
-
-    if ranking[j][1] > standard[1]:
+    if tempArr[i][1] > standard[1]:
         cnt += 1
-    elif ranking[j][1] == standard[1]:
-        if ranking[j][2] > standard[2]:
+    elif tempArr[i][1] == standard[1]:
+        if tempArr[i][2] > standard[2]:
             cnt += 1
-        elif ranking[j][2] == standard[2]:
-            if ranking[j][3] > standard[3]:
+        elif tempArr[i][2] == standard[2]:
+            if tempArr[i][3] > standard[3]:
                 cnt += 1
 
 print(cnt)
+
