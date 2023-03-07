@@ -1,19 +1,17 @@
 import sys
 
-input =sys.stdin.readline
+input = sys.stdin.readline
 
 word = input().rstrip()
-num = [0] * 9
-
+numSet = [0] * 9
 for i in word:
 
     idx = int(i)
 
     if idx == 9:
         idx = 6
+    numSet[idx] += 1
 
-    num[idx] += 1
+numSet[6] = (numSet[idx] + 1) // 2
 
-num[6] = (num[6] + 1) // 2
-
-print(max(num))
+print(max(numSet))
