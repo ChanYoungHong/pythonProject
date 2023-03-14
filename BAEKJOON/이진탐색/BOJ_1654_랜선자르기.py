@@ -12,22 +12,29 @@ import sys
 input = sys.stdin.readline
 
 n, m = map(int, input().split())
-nums = [int(input()) for _ in range(n)]
-start, end = 1, max(nums)
+
+num = []
+for _ in range(n):
+    num.append(int(input().rstrip()))
+
+start = 1
+end = max(num)
 
 while start <= end:
 
     mid = (start + end) // 2
     cnt = 0
+    for i in num:
 
-    for i in nums:
+        if i >= m:
+            cnt += (i // mid)
 
-        if i >= mid:
-            cnt += i // mid
 
     if cnt >= m:
         start = mid + 1
     else:
-        end = mid - 1
+        end = mid -1
 
 print(end)
+
+
