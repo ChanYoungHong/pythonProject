@@ -4,28 +4,35 @@ from collections import deque
 input = sys.stdin.readline
 
 n = int(input())
-link = int(input())
+m = int(input())
 
-graph = [[] for i in range(n+1)]
 visited = [False] * (n+1)
 
-for i in range(link):
-    a, b = map(int, input().split())
+graph = [[] for _ in range(n+1)]
+
+for i in range(m):
+
+    a,b = map(int, input().split())
+
     graph[a].append(b)
     graph[b].append(a)
 
-cnt = 0
-def bfs(graph, v):
+def bfs(start):
 
-    global cnt
-    q = deque(graph[v])
-    print('qqq', q)
+    q = deque([start])
+    # graph[start] 을 사용하게 되면 연결된 수 2,5가 들어 감
+    # q = deque(graph[start])
+    # q.append(start)
+
+    print('q = ', q)
+    cnt = 0
     while q:
 
-        pop = q.popleft()
-        visited[pop] = True
+        t = q.popleft()
+        visited[t] = True
 
-        for i in graph[pop]:
+        for i in graph[t]:
+
             if visited[i] == False:
                 visited[i] = True
                 q.append(i)
@@ -33,5 +40,4 @@ def bfs(graph, v):
 
     print(cnt)
 
-
-bfs(graph, 1)
+bfs(1)

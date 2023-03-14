@@ -3,50 +3,46 @@ from collections import deque
 
 input = sys.stdin.readline
 
-n, m, v = map(int, input().split())
-graph = [[0] * (n + 1) for _ in range(n + 1)]
+n,m,k = map(int, input().split())
 
-visited = [False] * (n + 1)
-visited2 = [False] * (n + 1)
-
-# for i in range(m):
-#     a, b = map(int, input().split())
-#     graph1[a].append(b)
-#     graph1[b].append(a)
-# print(graph1)
+graph = [[0] * (n+1) for _ in range(n+1)]
 
 for _ in range(m):
-    a, b = map(int, input().split())
+    a,b = map(int, input().split())
+
+    # graph[a].append(b)
+    # graph[b].append(a)
     graph[a][b] = True
     graph[b][a] = True
 
 
-res = []
+visited1 = [False] * (n+1)
+visited2 = [False] * (n+1)
 
+def bfs(k):
 
-def bfs(v):
-    q = deque([v])
-    visited[v] = True
+    q = deque([k])
+    visited2[k] = True
     while q:
-        pop = q.popleft()
-        print(pop, end=' ')
-        # for i in graph[pop]:
+        t = q.popleft()
+        print(t, end=' ')
         for i in range(1, n+1):
-            if visited[i] == False and graph[pop][i]:
-                visited[i] = True
+            if visited2[i] == False and graph[t][i]:
+                visited2[i] = True
                 q.append(i)
-            # if pop not in res:
-            #     res.append(pop)
 
 
-def dfs(v):
-    visited2[v] = True
-    print(v, end=' ')
-    for i in range(1, n + 1):
-        if visited2[i] == False and graph[v][i]:
+
+def dfs(k):
+    visited1[k] = True
+    print(k, end=' ')
+
+    for i in range(1, n+1):
+        if visited1[i] == False and graph[k][i]:
             dfs(i)
 
 
-dfs(v)
+
+dfs(k)
 print()
-bfs(v)
+bfs(k)

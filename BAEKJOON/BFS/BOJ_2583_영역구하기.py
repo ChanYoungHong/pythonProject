@@ -4,11 +4,21 @@ from collections import deque
 input = sys.stdin.readline
 
 m,n,k = map(int, input().split())
-graph = [[1] * n for _ in range(m)]
+
+graph = [[1] * (n) for i in range(m)]
+
+for _ in range(k):
+
+    x1, y1, x2, y2 = map(int, input().split())
+
+    for i in range(y1, y2):
+        for j in range(x1, x2):
+            graph[i][j] = 0
+
+print(graph)
 
 dx = [-1,1,0,0]
 dy = [0,0,-1,1]
-
 def bfs(x,y):
 
     q = deque()
@@ -17,24 +27,18 @@ def bfs(x,y):
     while q:
 
         y,x = q.popleft()
-
         for i in range(4):
-            ny = y + dy[i]
             nx = x + dx[i]
+            ny = y + dy[i]
 
             if 0 <= nx < n and 0 <= ny < m:
                 if graph[ny][nx] == 1:
                     graph[ny][nx] = 0
-                    q.append((ny,nx))
+                    q.append((ny, nx))
                     cnt += 1
 
     return cnt
 
-for _ in range(k):
-    x1, y1, x2, y2 = map(int, input().split())
-    for j in range(y1, y2):
-        for k in range(x1, x2):
-            graph[j][k] = 0
 
 res = []
 for i in range(m):
@@ -45,6 +49,6 @@ for i in range(m):
             res.append(bfs(i,j))
 
 print(len(res))
-res.sort()
-for i in res:
+
+for i in sorted(res):
     print(i, end=' ')
