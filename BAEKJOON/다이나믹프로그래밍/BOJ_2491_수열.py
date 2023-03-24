@@ -3,16 +3,23 @@ import sys
 input = sys.stdin.readline
 
 n = int(input())
-num = list(map(int, input().split()))
 
-dp = [[1] * n for _ in range(2)]
+dp1 = [1] * n
+dp2 = [1] * n
 
-for i in range(n-1):
+nums = list(map(int, input().split()))
 
-    if num[i] <= num[i+1]:
-        dp[0][i + 1] = dp[0][i] + 1
+for i in range(n - 1):
+    if nums[i] <= nums[i+1]:
+        dp1[i+1] = dp1[i] + 1
 
-    if num[i] >= num[i+1]:
-        dp[1][i + 1] = dp[1][i] + 1
+for j in range(n-1):
 
-print(max(map(max, dp)))
+    if nums[j] >= nums[j+1]:
+        dp2[j+1] = dp2[j] + 1
+
+res = []
+res.append(max(dp1))
+res.append(max(dp2))
+
+print(max(res))
