@@ -1,35 +1,27 @@
 import sys
+
 input = sys.stdin.readline
 
-n = int(input())
-grape = [0]
+t = int(input())
 
-for _ in range(n):
-    grape.append(int(input().rstrip()))
-
-print(grape)
+nums = [0]
+# print('nums : ', nums)
+# nums = [int(input().rstrip()) for _ in range(t)]
+for i in range(t):
+    nums.append(int(input().rstrip()))
+# dp = [0] * (t+1)
+# print('nums : 22', nums)
 dp = [0]
-dp.append(grape[1])
+dp.append(nums[1])
 
-if n > 1:
-    dp.append(grape[1] + grape[2])
+# t가 하나일 경우 다른 nums[2]는 없기 때문에 런타임 인덱스 에러가 간ㅁ
+if t > 1:
+    dp.append(nums[1] + nums[2])
 
-for i in range(3, n+1):
-    dp.append(max(dp[i-1], dp[i-3] + grape[i-1] + grape[i], dp[i-2] + grape[i]))
+# 최종값이 더 클 경우 for문에 안 들어감, 그냥 니가감 에러도 안 터짐 신기함
+for i in range(3, t+1):
+    dp.append(max(dp[i-1], dp[i-3] + nums[i-1] + nums[i], dp[i-2] + nums[i]))
 
-print(dp[n])
-
-
-''''''
-# n = int(input())
-# w = [0]
-# for i in range(n):
-#     w.append(int(input()))
-# dp = [0]
-# dp.append(w[1])
-# if n > 1:
-#     dp.append(w[1] + w[2])
-# for i in range(3, n + 1):
-#     dp.append(max(dp[i - 1], dp[i - 3] + w[i - 1] + w[i], dp[i - 2] + w[i]))
-# print(dp[n])
-
+print(dp[t])
+print(dp)
+print(nums)
