@@ -13,8 +13,8 @@ input = sys.stdin.readline
 
 # 처음 내 나름대로 구현한 방식
 
-n = int(input())
-memory = list(map(int, input().rstrip().split()))
+# n = int(input())
+# memory = list(map(int, input().rstrip().split()))
 
 #
 #
@@ -44,16 +44,20 @@ memory = list(map(int, input().rstrip().split()))
 
 '''
 
-answer = [0] * n
+n = int(input())
+memo = list(map(int, input().split()))
+
+temp = [0] * n
 
 for i in range(n):
+
     cnt = 0
     for j in range(n):
 
-        if cnt == memory[i] and answer[j] == 0:
-            answer[j] = i + 1
-            break
-        elif answer[j] == 0:
+        if cnt == memo[i] and temp[j] == 0:
+            temp[j] = i + 1
+
+        elif temp[j] == 0:
             cnt += 1
 
-print(*answer)
+print(temp)
