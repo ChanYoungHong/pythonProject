@@ -1,5 +1,6 @@
 import sys
 from collections import deque, defaultdict
+
 '''
 
 수도코드 -> 
@@ -12,8 +13,9 @@ input = sys.stdin.readline
 
 # 처음 내 나름대로 구현한 방식
 
-n = int(input())
-memory = list(map(int, input().rstrip().split()))
+# n = int(input())
+# memory = list(map(int, input().rstrip().split()))
+
 #
 #
 # temp = []
@@ -33,17 +35,29 @@ memory = list(map(int, input().rstrip().split()))
 #         result.append(idx)
 #
 # print(result)
+'''
 
-answer = [0] * n
+아이디어 
 
-for i in range(n): # 0 1 2 3
+1. 4번이 젤 크다, 4 > 2 > 1 > 3
+2. 
+
+'''
+
+n = int(input())
+memo = list(map(int, input().split()))
+
+temp = [0] * n
+
+for i in range(n):
+
     cnt = 0
-    for j in range(n): # 0 1 2 3
+    for j in range(n):
 
-        if cnt == memory[i] and answer[j] == 0:
-            answer[j] = i + 1
-            break
-        elif answer[j] == 0:
+        if cnt == memo[i] and temp[j] == 0:
+            temp[j] = i + 1
+
+        elif temp[j] == 0:
             cnt += 1
 
-print(*answer)
+print(temp)
