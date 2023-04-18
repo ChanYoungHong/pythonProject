@@ -2,25 +2,31 @@ import sys
 
 input = sys.stdin.readline
 
+t = int(input())
 
-def dfs(x):
-    visited[x] = True
-    num = arr[x]
+'''
 
-    if not visited[num]:
-        dfs(num)
+알게된 점 -> not visited 부분을 False로 바꿔서 답을 제출하면 
+Recursion Error가 뜸 신기함 
+'''
+def dfs(num):
+    visited[num] = True
+    aa = arr[num]
+
+    if visited[aa] == False:
+        # dfs(num)
+        dfs(aa)
 
 
-n = int(input())
+for i in range(t):
 
-for _ in range(n):
-
-    leng = int(input().rstrip())
-    arr = [0] + list(map(int, input().rstrip().split()))
-    visited = [True] + [False] * leng
+    n = int(input())
+    arr = [0] + list(map(int, input().split()))
+    visited = [True] + [False] * n
+    # 추가
     res = 0
 
-    for j in range(1, leng + 1):
+    for j in range(1, n + 1):
 
         if not visited[j]:
             dfs(j)
