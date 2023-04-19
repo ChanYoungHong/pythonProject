@@ -18,14 +18,14 @@ def bfs():
     q.append(n)
     while q:
         x = q.popleft()
-        for i in range(8):
-            if i < 6:
+        for i in range(8): # 0 1 2 3 4 5 6 7
+            if i < 6: # 0 1 2 3 4 5
                 nx = x + d[i]
                 if 0 <= nx <= 100000 and not visited[nx]:
                     q.append(nx)
                     visited[nx] = 1
                     arr[nx] = arr[x] + 1
-            else:
+            else: # 6 7
                 nx = x * d[i]
                 if 0 <= nx <= 100000 and not visited[nx]:
                     q.append(nx)
