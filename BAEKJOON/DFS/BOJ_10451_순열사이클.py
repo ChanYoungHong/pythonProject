@@ -10,12 +10,13 @@ t = int(input())
 Recursion Error가 뜸 신기함 
 
 '''
+
 def dfs(num):
+
     visited[num] = True
     aa = arr[num]
 
-    if visited[aa] == False:
-        # dfs(num)
+    if not visited[aa]:
         dfs(aa)
 
 
@@ -24,13 +25,14 @@ for i in range(t):
     n = int(input())
     arr = [0] + list(map(int, input().split()))
     visited = [True] + [False] * n
-    # 추가
     res = 0
 
-    for j in range(1, n + 1):
+    for j in range(1, n+1):
 
         if not visited[j]:
             dfs(j)
             res += 1
 
     print(res)
+
+
