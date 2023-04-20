@@ -63,29 +63,26 @@ dfs + 백트래킹을 써야 함
 
 n, m = map(int, input().split())
 board = [list(input().rstrip()) for _ in range(n)]
-visited = [[False] * m for i in range(n)]
 
 dx = [-1, 1, 0, 0]
 dy = [0, 0, -1, 1]
 
 cnt = 0
 
-def dfs(x,y,before):
+
+def dfs(x,y,word):
 
     global cnt
 
     for i in range(4):
-
         nx = x + dx[i]
         ny = y + dy[i]
 
-        if 0 <= nx < n and 0 <= ny < m:
-            if board[nx][ny] not in before:
-                dfs(nx,ny, before + board[nx][ny])
+        if 0 <= nx < n and 0 <= ny < m and board[nx][ny] not in word:
+            dfs(nx,ny,word + board[nx][ny])
 
-
-    if (len(before) > cnt):
-        cnt = len(before)
+    if (len(word) > cnt):
+        cnt = len(word)
 
 dfs(0,0,board[0][0])
 print(cnt)

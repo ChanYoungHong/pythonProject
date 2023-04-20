@@ -8,6 +8,7 @@ t = int(input())
 
 알게된 점 -> not visited 부분을 False로 바꿔서 답을 제출하면 
 Recursion Error가 뜸 신기함 
+
 '''
 def dfs(num):
     visited[num] = True
