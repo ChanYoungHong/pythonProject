@@ -27,10 +27,10 @@ graph = [list(map(int, input().rstrip().split())) for _ in range(n)]
 visited = [[False] * m for _ in range(n)]
 q = deque()
 
+
 def bfs():
 
     while q:
-
         x,y = q.popleft()
 
         for i in range(8):
@@ -38,9 +38,10 @@ def bfs():
             nx = x + dx[i]
             ny = y + dy[i]
 
-            if 0 <= nx < n and 0 <= ny < m and graph[nx][ny] == 0:
-                q.append((nx, ny))
-                graph[nx][ny] = graph[x][y] + 1
+            if 0 <= nx < n and 0 <= ny < m:
+                if graph[nx][ny] == 0:
+                    q.append((nx,ny))
+                    graph[nx][ny] = graph[x][y] + 1
 
 
 for i in range(n):
