@@ -22,15 +22,13 @@ input = sys.stdin.readline
 dx = [-1, -1, -1, 0, 1, 1, 1, 0]
 dy = [-1, 0, 1, 1, 1, 0, -1, -1]
 
-n, m = map(int, input().split())
-graph = [list(map(int, input().rstrip().split())) for _ in range(n)]
-visited = [[False] * m for _ in range(n)]
 q = deque()
-
+n,m = map(int, input().split())
 
 def bfs():
 
     while q:
+
         x,y = q.popleft()
 
         for i in range(8):
@@ -40,9 +38,11 @@ def bfs():
 
             if 0 <= nx < n and 0 <= ny < m:
                 if graph[nx][ny] == 0:
-                    q.append((nx,ny))
                     graph[nx][ny] = graph[x][y] + 1
+                    q.append((nx,ny))
 
+
+graph = [list(map(int, input().split())) for _ in range(n)]
 
 for i in range(n):
     for j in range(m):
@@ -51,4 +51,6 @@ for i in range(n):
             q.append((i,j))
 
 bfs()
+# print(graph)
 print(max(map(max, graph)) - 1)
+
