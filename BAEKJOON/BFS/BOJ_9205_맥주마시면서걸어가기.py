@@ -13,11 +13,8 @@ input = sys.stdin.readline
 
 '''
 
-dx = [-1,1,0,0]
-dy = [0,0,-1,1]
 
 def bfs():
-
     q = deque()
     q.append((h_x, h_y))
 
@@ -25,12 +22,14 @@ def bfs():
 
         x,y = q.popleft()
 
-        if abs(x - fes_x) + abs(y - fes_y) <= 1000:
+        if abs(x-f_x) + abs(y-f_y) <= 1000:
             print('happy')
             return
+
         for i in range(n):
             if not visited[i]:
                 new_x, new_y = graph[i]
+
                 if abs(x-new_x) + abs(y-new_y) <= 1000:
                     visited[i] = 1
                     q.append((new_x, new_y))
@@ -38,32 +37,15 @@ def bfs():
     print('sad')
     return
 
-
 t = int(input())
-# beer = 20
-# empty, new  = 0,0
-# visited = [False] * 32767
 
-for i in range(t):
-
-    # 편의점 개수
+for _ in range(t):
     n = int(input())
     h_x, h_y = map(int, input().split())
     graph = []
-    for j in range(n):
-        x,y = map(int, input().split())
-        graph.append((x,y))
-    fes_x, fes_y = map(int, input().split())
-    visited = [0 for _ in range(n+1)]
+    for _ in range(n):
+        a, b = map(int, input().split())
+        graph.append((a, b))
+    f_x, f_y = map(int, input().split())
+    visited = [0 for _ in range(n + 1)]
     bfs()
-
-print(visited)
-
-
-
-'''
-y + 1 -> 
- 
-
-
-'''
