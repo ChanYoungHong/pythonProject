@@ -2,27 +2,24 @@ import sys
 
 input = sys.stdin.readline
 
-word = input().rstrip()
 
-arr = list(word)
+word = list(input().rstrip())
 
-num = []
-for i in arr:
+sum = 0
+arr = ''
+arr2 = []
+
+for i in word:
 
     if i.isdigit():
-       num.append(i)
-       print('i', i)
-       arr.remove(i)
+        sum += int(i)
+    else:
+        arr2.append(i)
 
-num = list(map(int, num))
-arr.sort()
 
-ans = ''
-for i in arr:
-    ans += i
+arr2.sort()
+print(''.join(arr2)+str(sum))
 
-ans += str(sum(num))
-
-print(sum(num))
-print(arr)
-print(ans)
+# word = word.sort()
+# arr2 = arr.sort()
+# print(arr.sort())
