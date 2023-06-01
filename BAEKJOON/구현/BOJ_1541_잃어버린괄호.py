@@ -2,20 +2,22 @@ import sys
 
 input = sys.stdin.readline
 
-word = input().rstrip().split('-')
+text = input().rstrip().split('-')
 
 res = []
-for i in word:
+for i in text:
 
-    new_word = i.split('+')
+    x = i.split('+')
     sum = 0
-    for j in new_word:
+
+    for j in x:
         sum += int(j)
     res.append(sum)
 
-zz = res[0]
 
-for k in range(1, len(res)):
-    zz -= res[k]
+b = res[0]
 
-print(zz)
+for i in range(1, len(res)):
+    b -= res[i]
+
+print(b)
