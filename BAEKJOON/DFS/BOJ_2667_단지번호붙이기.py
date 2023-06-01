@@ -4,47 +4,50 @@ from collections import deque
 input = sys.stdin.readline
 
 
-
-
-
-
-n = int(input())
-board = [list(map(int, input().rstrip())) for _ in range(n)]
-visited = [[False] * n for _ in range(n)]
-
-# board = [list(map(int, input()))]
-
 dx = [-1,1,0,0]
 dy = [0,0,-1,1]
 
-
-
-def dfs(x,y):
-
-    global cnt
-    visited[x][y] = True
-
-    for i in range(4):
-        nx = x + dx[i]
-        ny = y + dy[i]
-
-        if 0 <= nx < n and 0 <= ny < n:
-            if visited[nx][ny] == False and board[nx][ny] == 1:
-                dfs(nx,ny)
-                cnt += 1
-
+n = int(input())
+board = [list(map(int, input().rstrip())) for i in range(n)]
 
 cnt = 0
 res = []
+
+def bfs(x,y):
+
+    global cnt
+    cnt = 1
+
+    q = deque()
+    q.append((x,y))
+
+    while q:
+
+        x,y = q.popleft()
+
+        for i in range(4):
+
+            nx = x + dx[i]
+            ny = y + dy[i]
+
+            if 0 <= nx < n and 0 <= ny < n:
+                if board[nx][ny] == 1:
+                    board[nx][ny] = 0
+                    cnt += 1
+                    q.append((nx,ny))
+
+    return cnt
+
+house = 0
 for i in range(n):
     for j in range(n):
 
-        if board[i][j] == 1 and visited[i][j] == False:
-            cnt = 1
-            dfs(i,j)
-            res.append(cnt)
+        if board[i][j] == 1:
+            board[i][j] = 0
+            res.append(bfs(i,j))
 
 
 print(len(res))
-for i in res:
+for i in sorted(res):
     print(i)
+
