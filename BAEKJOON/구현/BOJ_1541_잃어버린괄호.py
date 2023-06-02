@@ -7,17 +7,21 @@ text = input().rstrip().split('-')
 res = []
 for i in text:
 
-    x = i.split('+')
-    sum = 0
+    e = i.split('+')
+    tt = 0
 
-    for j in x:
-        sum += int(j)
-    res.append(sum)
+    for j in e:
+
+        tt += int(j)
+    res.append(tt)
 
 
 b = res[0]
-
-for i in range(1, len(res)):
-    b -= res[i]
+for z in range(1, len(res)):
+    # print('z :', z)
+    b -= res[z]
 
 print(b)
+
+
+
