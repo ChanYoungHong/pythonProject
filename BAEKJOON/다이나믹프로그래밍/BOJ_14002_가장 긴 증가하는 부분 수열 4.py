@@ -1,4 +1,3 @@
-
 import sys
 
 input = sys.stdin.readline
@@ -12,7 +11,7 @@ for i in range(n):
     for j in range(i):
 
         if nums[i] > nums[j]:
-            dp[i] = max(dp[i], dp[j]+1)
+            dp[i] = max(dp[i], dp[j] + 1)
 
 print(max(dp))
 
@@ -26,3 +25,7 @@ for k in range(n-1, -1, -1):
 
 res.sort()
 print(*res)
+
+
+
+
