@@ -17,14 +17,17 @@ print(max(dp))
 
 order = max(dp)
 res = []
-for k in range(n-1, -1, -1):
+for i in range(n-1, -1, -1):
 
-    if dp[k] == order:
+    if dp[i] == order:
         order -= 1
-        res.append(nums[k])
+        res.append(nums[i])
 
 res.sort()
 print(*res)
+
+
+
 
 
 
