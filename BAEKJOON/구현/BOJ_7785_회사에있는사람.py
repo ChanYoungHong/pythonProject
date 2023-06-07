@@ -2,38 +2,24 @@ import sys
 
 input = sys.stdin.readline
 
-n = int(input())
+t = int(input())
 
-temp = dict()
+s = {}
 
-for i in range(n):
+for i in range(t):
+    a, b = input().split()
 
-    k,v = input().split()
-
-    if v == 'enter':
-        temp[k] = v
+    if b == 'enter':
+        s[a] = b
     else:
-        del temp[k]
+        del s[a]
 
-temp = sorted(temp.keys(), reverse=True)
+s = sorted(s.keys(), reverse=True)
 
-for i in temp:
-    print(i)
+for j in s:
+    print(j)
 
-
-# check = {}
-# for i in range(n):
-#     v, k = input().split()
+# ans = Counter(s)
 #
-#     if check.get(k) == None:
-#         check[k] = set()
-#     check[k].add(v)
-#
-# for k,v in check.items():
-#     if k == 'leave':
-
-
-
-
-
-
+# print(s)
+# print(ans)
