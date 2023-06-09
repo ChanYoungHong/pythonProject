@@ -2,26 +2,23 @@ import sys
 
 input = sys.stdin.readline
 
-
-locat = []
 t = int(input())
 
 for i in range(t):
-    stick, ant = map(int, input().rstrip().split())
 
-    min_time = []
-    max_time = []
+    stick, ant = map(int, input().split())
+
+    max_stick = []
+    min_stick = []
 
     for j in range(ant):
 
-        # locat.append(stick)
         loc = int(input())
 
-        min_time.append(min(loc, stick - loc))
-        print('mIn_time : ', min_time)
+        loc = min(loc, stick - loc)
+        min_stick.append(loc)
 
-        max_time.append(max(loc, stick - loc))
-        print('mAx_time : ', max_time)
+        loc = max(loc, stick - loc)
+        max_stick.append(loc)
 
-    print(max(min_time), max(max_time))
-
+    print(max(min_stick), max(max_stick))
