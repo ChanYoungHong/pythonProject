@@ -2,24 +2,21 @@ import sys
 
 input = sys.stdin.readline
 
-t = int(input())
+n = int(input())
 
-s = {}
+arr = {}
 
-for i in range(t):
-    a, b = input().split()
+for i in range(n):
 
-    if b == 'enter':
-        s[a] = b
+    k,v = input().split()
+
+    if v == 'enter':
+        arr[k] = v
     else:
-        del s[a]
+        del arr[k]
 
-s = sorted(s.keys(), reverse=True)
+arr = sorted(arr.keys(), reverse = True)
 
-for j in s:
-    print(j)
+for i in arr:
+    print(i)
 
-# ans = Counter(s)
-#
-# print(s)
-# print(ans)
