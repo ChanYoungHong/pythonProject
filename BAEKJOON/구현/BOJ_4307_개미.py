@@ -4,21 +4,33 @@ input = sys.stdin.readline
 
 t = int(input())
 
+'''
+
+1. 생각해봐야 할 점 -> 
+
+'''
+
 for i in range(t):
 
     stick, ant = map(int, input().split())
 
-    max_stick = []
-    min_stick = []
+    min_s = []
+    max_s = []
 
     for j in range(ant):
 
         loc = int(input())
 
         loc = min(loc, stick - loc)
-        min_stick.append(loc)
+        min_s.append(loc)
 
         loc = max(loc, stick - loc)
-        max_stick.append(loc)
+        max_s.append(loc)
 
-    print(max(min_stick), max(max_stick))
+    print(max(min_s), max(max_s))
+
+
+
+
+
+
