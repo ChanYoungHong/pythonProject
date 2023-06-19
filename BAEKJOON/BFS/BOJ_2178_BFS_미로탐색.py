@@ -3,17 +3,17 @@ from collections import deque
 
 input = sys.stdin.readline
 
-n,m = map(int, input().split())
+n, m = map(int, input().split())
+
 board = [list(map(int, input().rstrip())) for _ in range(n)]
 
-dx = [-1,1,0,0]
-dy = [0,0,1,-1]
+dx = [-1, 1, 0, 0]
+dy = [0, 0, -1, 1]
 
 
-def bfs(x,y):
-
+def bfs(x, y):
     q = deque()
-    q.append((x,y))
+    q.append((x, y))
 
     while q:
 
