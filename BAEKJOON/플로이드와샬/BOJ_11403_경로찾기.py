@@ -1,9 +1,9 @@
 import sys
-
 input = sys.stdin.readline
 
 n = int(input())
-s = [list(map(int, input().split())) for _ in range(n)]
+board = [list(map(int, input().split())) for _ in range(n)]
+
 
 for k in range(n):
     for i in range(n):
@@ -12,10 +12,10 @@ for k in range(n):
             # if i == j:
             #     continue
 
-            if s[i][j] == 1 or (s[i][k] == 1 and s[k][j] == 1):
-                s[i][j] = 1
+            if board[i][j] == 1 or (board[i][k] == 1 and board[k][j] == 1):
+                board[i][j] = 1
 
-for i in s:
+
+for i in board:
     print(*i, end=' ')
     print()
-
