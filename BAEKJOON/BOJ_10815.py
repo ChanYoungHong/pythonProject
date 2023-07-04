@@ -25,7 +25,6 @@ arr1.sort()
 def bs(arr, start, end, target):
 
     while start <= end:
-
         mid = (start + end) // 2
 
         if arr[mid] == target:
