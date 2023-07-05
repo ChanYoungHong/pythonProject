@@ -26,6 +26,7 @@ def bs(arr, start, end, target):
 
         if arr[mid] < target:
             res = mid
+            print('res : ', res)
             start = mid + 1
         else:
             end = mid - 1
@@ -43,6 +44,7 @@ for _ in range(t):
 
     for i in aarr:
         cnt += bs(barr, 0, len(barr) - 1, i) + 1
+        print('bs(barr, 0, len(barr) - 1, i) :', bs(barr, 0, len(barr) - 1, i))
 
     print(cnt)
 
