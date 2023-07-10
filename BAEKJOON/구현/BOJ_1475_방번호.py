@@ -1,16 +1,14 @@
 import sys
 
 input = sys.stdin.readline
-'''
-1. 아이디어 
-2. 시간복잡도 - 
-3. 
-'''
-n = input().rstrip()
+
+
 
 sett = [0] * 9
 
-for i in n:
+num = input().rstrip()
+
+for i in num:
 
     idx = int(i)
 
@@ -19,6 +17,6 @@ for i in n:
     sett[idx] += 1
 
 sett[6] = (sett[6] + 1) // 2
+
+# print(sett[6])
 print(max(sett))
-
-
