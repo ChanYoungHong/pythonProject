@@ -4,16 +4,19 @@ input = sys.stdin.readline
 
 n = int(input())
 
-res = []
+arr = []
+
 def dfs():
 
-    if len(res) == n:
-        print(*res)
+    if len(arr) == n:
+        print(*arr)
 
-    for i in range(1, n+1):
-        if i not in res:
-            res.append(i)
+    for i in range(1, 1+n):
+
+        if i not in arr:
+            arr.append(i)
             dfs()
-            res.pop()
+            arr.pop()
 
 dfs()
+
