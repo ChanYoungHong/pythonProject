@@ -3,11 +3,13 @@ import sys
 input = sys.stdin.readline
 
 n, m = map(int, input().split())
-arr = list(map(int, input().rstrip().split()))
+arr = list(map(int, input().split()))
 
-end = 0
+dp = [arr[0]]
+
 inter_num = 0
 cnt = 0
+end = 0
 
 for i in range(n):
 
