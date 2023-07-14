@@ -1,50 +1,33 @@
-# import sys
-#
-# input = sys.stdin.readline
-#
-# n = int(input())
-#
-# words = []
-# for i in range(n):
-#     a = input().rstrip()
-#     words.append(a)
-#
-# maxx = max(words)
-# cnt = words.count(maxx)
-#
-# res = []
-# for j in words:
-#
-#     if words.count(j) >= cnt:
-#         res.append(j)
-#     else:
-#         continue
-#
-# res.sort()
-# print(res[0])
-
 import sys
 
-book = dict()
-n = int(input())
-
 input = sys.stdin.readline
-for _ in range(n):
 
-    name = input().rstrip()
+'''
+1. 알고리즘 - 가장 많이 팔린 책을 구하기, 사전 순으로 출력을 해줘야 함
+2. 시간복잡도 - 1000보다 작을 때, 공식 상 벨만 포드인데..
+3. 배열? - dict 너리를 써서 카운트 해줘야 할 것 같은, 아니면 itertools
+'''
 
-    if name in book:
-        book[name] += 1
+n = int(input())
+arr = dict()
+
+for i in range(n):
+
+    a = input().rstrip()
+
+    if a in arr:
+        arr[a] += 1
     else:
-        book[name] = 1
+        arr[a] = 1
+
+ans = sorted(arr.items())
 
 max = 0
-sbook = dict(sorted(book.items()))
-for i in sbook:
-    if (sbook[i]) > max:
-        max = sbook[i]
-        maxi = i
-print(maxi)
+for i,j in ans:
 
+    if max < j:
+        max = j
+        maxim = i
 
+print(maxim)
 
