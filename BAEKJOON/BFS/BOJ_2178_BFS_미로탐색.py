@@ -17,17 +17,16 @@ def bfs(x, y):
 
     while q:
 
-        x,y = q.popleft()
+        x, y = q.popleft()
 
         for i in range(4):
-
-            nx = x + dx[i]
-            ny = y + dy[i]
+            nx = dx[i] + x
+            ny = dy[i] + y
 
             if 0 <= nx < n and 0 <= ny < m:
                 if board[nx][ny] == 1:
                     board[nx][ny] = board[x][y] + 1
-                    q.append((nx,ny))
+                    q.append((nx, ny))
 
     return board[-1][-1]
 
