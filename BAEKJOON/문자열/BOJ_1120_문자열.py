@@ -2,22 +2,27 @@ import sys
 
 input = sys.stdin.readline
 
-word1, word2 = input().rstrip().split()
 
-a, b = len(word1), len(word2)
+'''
 
-res =[ ]
+1. 알고리즘 - 
+2. 시간복잡도 - 따로 알고리즘 필요 없을 듯 웬만하면 다 됨
+3. 어떤 방식? - 
+'''
 
-cnt = 0
-for i in range(b - a + 1): # 0 1
-    for j in range(a): # 0 1 2 3 4 5
+word1, word2 = input().split()
+res = []
 
-        if word1[j] != word2[i+j]:
-            # print('word1 : ', word1[i+j], end = '  ')
-            # print('word2 : ', word2[i+j])
-            cnt += 1
-    res.append(cnt)
+for i in range(len(word2) - len(word1) + 1):
     cnt = 0
 
+    for j in range(len(word1)):
+        if word1[j] != word2[i+j]:
+            cnt += 1
+
+    res.append(cnt)
+
+# print(res)
 print(min(res))
-print(res)
+
+
