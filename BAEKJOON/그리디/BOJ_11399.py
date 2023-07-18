@@ -1,11 +1,16 @@
-n = int(input())
-array = list(map(int, input().split()))
+import sys
 
-array.sort()
+input = sys.stdin.readline
+
+n = int(input())
+arr = list(map(int, input().split()))
+
+arr.sort()
 
 sum = 0
-for i in range(n): # 0 1 2 3 4
-    for j in range(i+1):
-        sum += array[j]
+total = 0
+for i in arr:
+    sum += i
+    total += sum
 
-print(sum)
+print(total)
