@@ -2,18 +2,11 @@ import sys
 
 input = sys.stdin.readline
 
-t = int(input().rstrip())
-
+t = int(input())
 for _ in range(t):
-    n, word = input().rstrip().split()
+    a,b = input().rstrip().split()
     ans = ''
-    for i in word:
-        ans += int(n) * i
+    for i in b:
+        ans += int(a)*i
+
     print(ans)
-
-
-
-# for i in range(3):
-#     a = 'A' * i
-#
-# print(a)
