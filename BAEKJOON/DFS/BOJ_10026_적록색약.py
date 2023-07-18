@@ -21,10 +21,11 @@ dy = [0,0,-1,1]
 
 def dfs(x, y):
 
-    global cnt1, cnt2
+    global cnt
 
     visited[x][y] = True
     current_color = board[x][y]
+    cnt += 1
 
     for i in range(4):
         nx = dx[i] + x
@@ -35,14 +36,13 @@ def dfs(x, y):
                 visited[nx][ny] = True
                 dfs(nx,ny)
 
-cnt1 = 0
-cnt2 = 0
+res = []
+cnt = 0
 for i in range(n):
     for j in range(n):
 
         if not visited[i][j]:
             dfs(i, j)
-            cnt1 += 1
 
 for i in range(n):
     for j in range(n):
@@ -57,6 +57,6 @@ for i in range(n):
 
         if not visited[i][j]:
             dfs(i, j)
-            cnt2 += 1
 
-print(cnt1, cnt2)
+
+print(*res)
