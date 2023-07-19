@@ -14,36 +14,42 @@ input = sys.stdin.readline
 
 n = int(input())
 board = [list(input().rstrip()) for _ in range(n)]
-visited = [[False] * n  for _ in range(n)]
+visited = [[False] * n for _ in range(n)]
 
-dx = [-1,1,0,0]
+dx = [1,-1,0,0]
 dy = [0,0,-1,1]
 
-def dfs(x, y):
+cnt1, cnt2 = 0,0
 
-    global cnt
+def dfs(x,y):
 
-    visited[x][y] = True
+    global cnt1, cnt2
+
     current_color = board[x][y]
-    cnt += 1
 
     for i in range(4):
+
         nx = dx[i] + x
         ny = dy[i] + y
 
         if 0 <= nx < n and 0 <= ny < n:
-            if visited[nx][ny] == False and board[nx][ny] == current_color:
+            if visited[nx][ny] == False and current_color == board[nx][ny]:
                 visited[nx][ny] = True
                 dfs(nx,ny)
 
+
 res = []
-cnt = 0
+
 for i in range(n):
     for j in range(n):
 
-        if not visited[i][j]:
-            dfs(i, j)
+        if visited[i][j] == False:
+            visited[i][i] = True
+            dfs(i,j)
+            cnt1 += 1
+res.append(cnt1)
 
+# 적록색약 병이 있을 경우에 다시 바꿔주기
 for i in range(n):
     for j in range(n):
 
@@ -55,8 +61,10 @@ visited = [[False] * n for _ in range(n)]
 for i in range(n):
     for j in range(n):
 
-        if not visited[i][j]:
-            dfs(i, j)
-
+        if visited[i][j] == False:
+            visited[i][j] = True
+            dfs(i,j)
+            cnt2 += 1
+res.append(cnt2)
 
 print(*res)
