@@ -3,8 +3,15 @@ from collections import deque
 
 input = sys.stdin.readline
 
-n, m = map(int, input().split())
+'''
 
+1. 알고리즘
+2. 시간복잡도 - 
+3. 배열 - board로 배열을 받기, 행은 n으로 받기
+
+'''
+
+n, m = map(int, input().split())
 board = [list(map(int, input().rstrip())) for _ in range(n)]
 
 dx = [-1, 1, 0, 0]
@@ -17,7 +24,7 @@ def bfs(x, y):
 
     while q:
 
-        x, y = q.popleft()
+        x, y, = q.popleft()
 
         for i in range(4):
             nx = dx[i] + x
