@@ -14,19 +14,18 @@ cnt = 0
 
 def bfs(x,y):
 
-    global cnt
-    cnt = 1
-
     q = deque()
     q.append((x,y))
+
+    cnt = 1
 
     while q:
 
         x,y = q.popleft()
 
         for i in range(4):
-            nx = x + dx[i]
-            ny = y + dy[i]
+            nx = dx[i] + x
+            ny = dy[i] + y
 
             if 0 <= nx < n and 0 <= ny < n:
                 if board[nx][ny] == 1:
@@ -36,7 +35,7 @@ def bfs(x,y):
 
     return cnt
 
-res = []
+res = [ ]
 for i in range(n):
     for j in range(n):
 
@@ -44,10 +43,13 @@ for i in range(n):
             board[i][j] = 0
             res.append(bfs(i,j))
 
-
-
-res.sort()
 print(len(res))
+res.sort()
 for i in res:
     print(i)
+
+
+
+
+
 
