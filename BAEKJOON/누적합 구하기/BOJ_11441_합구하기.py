@@ -3,18 +3,19 @@ import sys
 input = sys.stdin.readline
 
 n = int(input())
-nums = list(map(int, input().split()))
-sum = 0
-result = [0]
+arr = list(map(int, input().split()))
 
-for i in nums:
-    sum += i
-    result.append(sum)
+ssum = 0
+res = [0]
+for k in range(n):
+    ssum += arr[k]
+    res.append(ssum)
 
 m = int(input())
-for _ in range(m):
-    a, b = map(int, input().split())
-    print(result[b] - result[a - 1])
+for i in range(m):
+    x,y = map(int, input().split())
+    print(res[y] - res[x-1])
+
 
 
 
