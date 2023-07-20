@@ -11,6 +11,7 @@ dy = [0,0,-1,1]
 def bfs(x,y):
 
     global cnt
+
     q = deque()
     q.append((x,y))
 
@@ -34,13 +35,13 @@ def bfs(x,y):
 
 cnt = 0
 res = []
-
 for i in range(n):
     for j in range(m):
 
         if board[i][j] == 1:
             board[i][j] = 0
             res.append(bfs(i,j))
+
 
 if len(res) == 0:
     print(len(res))
