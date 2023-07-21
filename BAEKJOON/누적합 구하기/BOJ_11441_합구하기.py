@@ -5,19 +5,18 @@ input = sys.stdin.readline
 n = int(input())
 arr = list(map(int, input().split()))
 
-dp = [0]
-summ = 0
-
-for j in range(n):
-
-    summ += arr[j]
-    dp.append(summ)
-
-# print(dp)
+ssum = 0
+res = [0]
+for k in range(n):
+    ssum += arr[k]
+    res.append(ssum)
 
 m = int(input())
 for i in range(m):
+    x,y = map(int, input().split())
+    print(res[y] - res[x-1])
 
-    a,b = map(int, input().split())
-    res = (dp[b] - dp[a-1])
-    print(res)
+
+
+
+

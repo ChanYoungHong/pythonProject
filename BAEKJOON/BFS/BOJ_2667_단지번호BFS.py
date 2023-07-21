@@ -14,13 +14,14 @@ cnt = 0
 
 def bfs(x,y):
 
+    global cnt
+
     q = deque()
     q.append((x,y))
 
     cnt = 1
 
     while q:
-
         x,y = q.popleft()
 
         for i in range(4):
@@ -35,7 +36,7 @@ def bfs(x,y):
 
     return cnt
 
-res = [ ]
+res = []
 for i in range(n):
     for j in range(n):
 
@@ -44,9 +45,10 @@ for i in range(n):
             res.append(bfs(i,j))
 
 print(len(res))
-res.sort()
 for i in res:
     print(i)
+
+
 
 
 

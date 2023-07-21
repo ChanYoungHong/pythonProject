@@ -12,58 +12,38 @@ input = sys.stdin.readline
 
 test = int(input())
 
-for i in range(test):
-    n = int(input())
-    array1 = list(map(int, input().split()))
-
-    m = int(input())
-    array2 = list(map(int, input().split()))
-
-    array1 = list(set(array1))
-    array1.sort()
 
 
-def binary_search(array, target, start, end):
+def bs(arr, start, end, target):
+
     while start <= end:
-        mid = (start + end) // 2
-        if array[mid] == target:
-            return 1
-        elif array[mid] > target:
-            end = mid - 1
-        else:
-            start = mid + 1
 
+        mid = (start + end) // 2
+
+        if arr[mid] == target:
+            return 1
+        elif arr[mid] < target:
+            start = mid + 1
+        else:
+            end = mid - 1
     return 0
 
+for _ in range(test):
+    n = int(input())
+    arr1 = list(map(int, input().split()))
 
-for j in array2:
-    print(binary_search(array1, j, 0, n - 1))
+    m = int(input())
+    arr2 = list(map(int, input().split()))
 
-# def binary_search(array, target):
-#     start = 0
-#     end = len(array1) - 1
-#
-#     while start <= end:
-#         mid = (start + end) // 2
-#         if array[mid] == target:
-#             return 1
-#         elif array[mid] > target:
-#             end = mid - 1
-#         else:
-#             start = mid + 1
-#     return 0
-#
-#
-# test = int(input())
-#
-# for i in range(test):
-#     n = int(input())
-#     array1 = list(map(int, input().split()))
-#     m = int(input())
-#     array2 = list(map(int, input().split()))
-#
-#     array1 = list(set(array1))
-#     array1.sort()
-#
-#     for j in array2:
-#         print(binary_search(array1, j))
+    arr1 = list(set(arr1))
+    arr1.sort()
+
+    for k in arr2:
+        print(bs(arr1, 0, len(arr1)-1, k))
+
+
+
+
+
+
+
