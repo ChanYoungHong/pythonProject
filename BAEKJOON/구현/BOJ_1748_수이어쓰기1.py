@@ -2,16 +2,12 @@ import sys
 
 input = sys.stdin.readline
 
-n = int(input())
-length_n = len(str(n))
+n = int(input().rstrip())
 
-print('length_n : ', length_n)
+n_length = len(str(n))
+aa = 0
 
-cnt = 0
+for i in range(n_length-1):
+    aa += 9 * 10 ** i * (i+1)
 
-for i in range(length_n-1):
-    cnt += 9 * 10 ** i * (i+1)
-
-print(cnt + (n - 10**(length_n-1) + 1) * length_n)
-
-
+print(aa + (n - 10 ** (n_length-1) + 1) * n_length)
