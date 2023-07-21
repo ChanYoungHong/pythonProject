@@ -6,7 +6,6 @@ n = int(input().rstrip())
 
 n_length = len(str(n))
 aa = 0
-
 for i in range(n_length-1):
     aa += 9 * 10 ** i * (i+1)
 
