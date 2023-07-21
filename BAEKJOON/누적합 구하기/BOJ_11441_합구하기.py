@@ -3,19 +3,21 @@ import sys
 input = sys.stdin.readline
 
 n = int(input())
-nums = list(map(int, input().split()))
-sum = 0
-result = [0]
+arr = list(map(int, input().split()))
 
-for i in nums:
-    sum += i
-    result.append(sum)
+dp = [0]
+summ = 0
+
+for j in range(n):
+
+    summ += arr[j]
+    dp.append(summ)
+
+# print(dp)
 
 m = int(input())
-for _ in range(m):
-    a, b = map(int, input().split())
-    print(result[b] - result[a - 1])
+for i in range(m):
 
-
-
-
+    a,b = map(int, input().split())
+    res = (dp[b] - dp[a-1])
+    print(res)
