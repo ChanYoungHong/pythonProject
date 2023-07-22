@@ -1,13 +1,13 @@
 import sys
-from collections import deque
 
 input = sys.stdin.readline
 
-dx = [-1, 1, 0, 0]
-dy = [0, 0, -1, 1]
-
 n = int(input())
 board = [list(map(int, input().rstrip())) for _ in range(n)]
+
+dx = [1, -1, 0, 0]
+dy = [0, 0, 1, -1]
+
 cnt = 0
 
 def dfs(x,y):
@@ -33,11 +33,12 @@ for i in range(n):
     for j in range(n):
 
         if board[i][j] == 1:
+            board[i][j] = 0
             res.append(dfs(i,j))
             cnt = 0
 
 print(len(res))
 res.sort()
 
-for i in res:
-    print(i)
+for z in res:
+    print(z)
