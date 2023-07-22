@@ -1,14 +1,12 @@
 import sys
 from collections import deque
 
-input = sys.stdin.readline
-
 
 n = int(input())
 board = [list(map(int, input().rstrip())) for _ in range(n)]
 
-dx = [-1,1,0,0]
-dy = [0,0,-1,1]
+dx = [1,-1,0,0]
+dy = [0,0,1,-1]
 
 cnt = 0
 
@@ -20,8 +18,8 @@ def bfs(x,y):
     q.append((x,y))
 
     cnt = 1
-
     while q:
+
         x,y = q.popleft()
 
         for i in range(4):
@@ -43,15 +41,13 @@ for i in range(n):
         if board[i][j] == 1:
             board[i][j] = 0
             res.append(bfs(i,j))
+            cnt = 0
 
 print(len(res))
-for i in res:
-    print(i)
+res.sort()
 
-
-
-
-
+for k in res:
+    print(k)
 
 
 
