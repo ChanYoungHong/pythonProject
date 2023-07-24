@@ -19,37 +19,35 @@ visited = [[False] * n for _ in range(n)]
 dx = [1,-1,0,0]
 dy = [0,0,-1,1]
 
-cnt1, cnt2 = 0,0
+cnt1,cnt2 = 0,0
 
 def dfs(x,y):
 
     global cnt1, cnt2
-
     current_color = board[x][y]
 
     for i in range(4):
-
         nx = dx[i] + x
         ny = dy[i] + y
 
         if 0 <= nx < n and 0 <= ny < n:
-            if visited[nx][ny] == False and current_color == board[nx][ny]:
+            if board[nx][ny] == current_color and not visited[nx][ny]:
                 visited[nx][ny] = True
                 dfs(nx,ny)
 
+    return
 
 res = []
-
 for i in range(n):
     for j in range(n):
 
-        if visited[i][j] == False:
-            visited[i][i] = True
+        if not visited[i][j]:
+            visited[i][j] = True
             dfs(i,j)
             cnt1 += 1
 res.append(cnt1)
 
-# 적록색약 병이 있을 경우에 다시 바꿔주기
+
 for i in range(n):
     for j in range(n):
 
@@ -61,7 +59,7 @@ visited = [[False] * n for _ in range(n)]
 for i in range(n):
     for j in range(n):
 
-        if visited[i][j] == False:
+        if not visited[i][j]:
             visited[i][j] = True
             dfs(i,j)
             cnt2 += 1
