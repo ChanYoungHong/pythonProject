@@ -34,7 +34,6 @@ def bfs(x, y):
                 if board[nx][ny] == 1:
                     board[nx][ny] = board[x][y] + 1
                     q.append((nx, ny))
-
     return board[-1][-1]
 
 
