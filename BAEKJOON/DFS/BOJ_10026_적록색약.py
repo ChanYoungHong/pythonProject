@@ -10,16 +10,16 @@ from collections import deque
 2. 시간복잡도 - O(V+E)
 3. 배열 - 
 '''
-input = sys.stdin.readline
 
 n = int(input())
-board = [list(input().rstrip()) for _ in range(n)]
+board = [list(input()) for _ in range(n)]
 visited = [[False] * n for _ in range(n)]
 
 dx = [1,-1,0,0]
-dy = [0,0,-1,1]
+dy = [0,0,1,-1]
 
-cnt1,cnt2 = 0,0
+cnt1 = 0
+cnt2 = 0
 
 def dfs(x,y):
 
@@ -35,7 +35,8 @@ def dfs(x,y):
                 visited[nx][ny] = True
                 dfs(nx,ny)
 
-    return
+    return cnt1
+
 
 res = []
 for i in range(n):
@@ -45,8 +46,8 @@ for i in range(n):
             visited[i][j] = True
             dfs(i,j)
             cnt1 += 1
-res.append(cnt1)
 
+res.append(cnt1)
 
 for i in range(n):
     for j in range(n):
@@ -63,6 +64,8 @@ for i in range(n):
             visited[i][j] = True
             dfs(i,j)
             cnt2 += 1
+
 res.append(cnt2)
 
 print(*res)
+
