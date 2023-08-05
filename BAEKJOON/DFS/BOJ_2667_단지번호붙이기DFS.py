@@ -1,4 +1,5 @@
 import sys
+from collections import deque
 
 input = sys.stdin.readline
 
@@ -13,8 +14,6 @@ cnt = 0
 def dfs(x,y):
 
     global cnt
-
-    board[x][y] = 0
     cnt += 1
 
     for i in range(4):
@@ -23,10 +22,10 @@ def dfs(x,y):
 
         if 0 <= nx < n and 0 <= ny < n:
             if board[nx][ny] == 1:
+                board[nx][ny] = 0
                 dfs(nx,ny)
 
     return cnt
-
 
 res = []
 for i in range(n):
@@ -38,7 +37,4 @@ for i in range(n):
             cnt = 0
 
 print(len(res))
-res.sort()
-
-for z in res:
-    print(z)
+print(res)
