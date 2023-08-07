@@ -8,12 +8,13 @@ input = sys.stdin.readline
 3. 배열 -  
 '''
 
-n,m = map(int, input().split())
+n, m = map(int, input().split())
 arr = list(map(int, input().split()))
 
 dp = [sum(arr[:m])]
 
 for i in range(n-m):
-    dp.append(dp[i] - arr[i] + arr[m+i])
+    dp.append(dp[i] + arr[i+m] - arr[i])
 
 print(max(dp))
+

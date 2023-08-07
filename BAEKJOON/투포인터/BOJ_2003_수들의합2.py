@@ -5,10 +5,9 @@ input = sys.stdin.readline
 n, m = map(int, input().split())
 arr = list(map(int, input().split()))
 
-dp = [arr[0]]
 
-inter_num = 0
 cnt = 0
+inter_num = 0
 end = 0
 
 for i in range(n):
