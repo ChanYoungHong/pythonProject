@@ -4,22 +4,25 @@ input = sys.stdin.readline
 
 n = int(input())
 
+
+# 시간 -> 초로 환산
 def timeToNum(strTime):
-    min, sec = map(int, strTime.split(":"))
+    min, sec = map(int, strTime.split(':'))
     return min * 60 + sec
 
-def numToTime(num):
-    min = str(num // 60)
-    sec = str(num % 60)
+# 초 -> 시간으로 환산
+def numToTime(time):
+
+    min = str(time // 60)
+    sec = str(time % 60)
 
     if len(min) == 1:
-        min = "0" + min
+        min = '0' + min
 
     if len(sec) == 1:
-        sec = "0" + sec
+        sec = '0' + sec
 
-    return min + ":" + sec
-
+    return min + ':' + sec
 
 scoreDict = {}
 
@@ -27,25 +30,25 @@ for i in range(n):
     teamNo, strTime = input().split()
     scoreDict[timeToNum(strTime)] = int(teamNo)
 
+teamWinTime1 = 0
+teamWinTime2 = 0
+teamScore1 = 0
+teamScore2 = 0
 
-team1win = 0
-team2win = 0
-team1score = 0
-team2score = 0
 
-print(scoreDict)
-for i in range(timeToNum("48:00")):
+for j in range(timeToNum('48:00')):
 
-    if i in scoreDict:
-        if scoreDict[i] == 1:
-            team1score += 1
+    if j in scoreDict:
+        if scoreDict[j] == 1:
+            teamScore1 += 1
         else:
-            team2score += 1
+            teamScore2 += 1
 
-    if team1score > team2score:
-        team1win += 1
-    elif team1score < team2score:
-        team2win += 1
 
-print(numToTime(team1win))
-print(numToTime(team2win))
+    if teamScore1 > teamScore2:
+        teamWinTime1 += 1
+    elif teamScore1 < teamScore2:
+        teamWinTime2 += 1
+
+print(numToTime(teamWinTime1))
+print(numToTime(teamWinTime2))
