@@ -7,12 +7,12 @@ n = int(input())
 
 # 시간 -> 초로 환산
 def timeToNum(strTime):
-    min, sec = map(int, strTime.split(':'))
+
+    min, sec = map(int, strTime.split(":"))
     return min * 60 + sec
 
 # 초 -> 시간으로 환산
 def numToTime(time):
-
     min = str(time // 60)
     sec = str(time % 60)
 
@@ -30,25 +30,24 @@ for i in range(n):
     teamNo, strTime = input().split()
     scoreDict[timeToNum(strTime)] = int(teamNo)
 
-teamWinTime1 = 0
-teamWinTime2 = 0
+team1Win = 0
+team2Win = 0
+
 teamScore1 = 0
 teamScore2 = 0
 
+for k in range(timeToNum("48:00")):
 
-for j in range(timeToNum('48:00')):
-
-    if j in scoreDict:
-        if scoreDict[j] == 1:
+    if k in scoreDict:
+        if scoreDict[k] == 1:
             teamScore1 += 1
         else:
             teamScore2 += 1
 
-
     if teamScore1 > teamScore2:
-        teamWinTime1 += 1
+        team1Win += 1
     elif teamScore1 < teamScore2:
-        teamWinTime2 += 1
+        team2Win += 1
 
-print(numToTime(teamWinTime1))
-print(numToTime(teamWinTime2))
+print(numToTime(team1Win))
+print(numToTime(team2Win))
