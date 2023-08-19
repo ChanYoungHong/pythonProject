@@ -4,12 +4,12 @@ from collections import Counter
 input = sys.stdin.readline
 
 t = int(input())
-
-for i in range(t):
+for _ in range(t):
 
     n = int(input())
     arr = []
-    for j in range(n):
+    for i in range(n):
+
         a,b = input().split()
         arr.append(b)
 
@@ -17,6 +17,7 @@ for i in range(t):
     res = Counter(arr)
 
     for key in res:
+        # print('res : ', res)
         num *= res[key] + 1
 
     print(num - 1)
