@@ -5,15 +5,15 @@ input = sys.stdin.readline
 n,m = map(int, input().split())
 arr = list(map(int, input().split()))
 
-dic = dict()
+arrDict = {}
 
 for i in arr:
-    if i not in dic:
-        dic[i] = 0
-    dic[i] += 1
+    if i not in arrDict:
+        arrDict[i] = 0
+    arrDict[i] += 1
 
-dic = sorted(dic.items(), key=lambda x:x[1], reverse=True)
+arrDict = sorted(arrDict.items(), key=lambda x:x[1], reverse=True)
 
-for a,b in dic:
+for a,b in arrDict:
     for j in range(b):
-        print(str(a), end=" ")
+        print(a, end = ' ')
