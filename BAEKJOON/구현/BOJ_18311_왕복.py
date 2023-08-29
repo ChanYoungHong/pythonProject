@@ -13,28 +13,22 @@ n, k = map(int, input().split())
 arr = list(map(int, input().split()))
 
 
-# ans = (sum(arr) * 2) - k
-#
-# temp = 0
-# for i in range(len(arr)):
-#
-#     temp += arr[i]
-#
-#     if temp >= ans:
-#         print(i+1)
-#         break
 
-for i in range(n):
+for i in range(len(arr)):
+
     k -= arr[i]
 
     if k < 0:
         print(i+1)
         break
+
 else:
-    for i in range(n-1, -1, -1):
+
+    for i in range(len(arr)-1, -1,-1):
+
         k -= arr[i]
+
         if k < 0:
             print(i+1)
             break
-
 
