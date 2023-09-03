@@ -21,33 +21,30 @@ dy = [0,0,1,-1]
 cnt1 = 0
 cnt2 = 0
 
+
 def dfs(x,y):
 
-    global cnt1, cnt2
-    current_color = board[x][y]
+    cur_color = board[x][y]
 
     for i in range(4):
-        nx = dx[i] + x
-        ny = dy[i] + y
+        nx = x + dx[i]
+        ny = y + dy[i]
 
         if 0 <= nx < n and 0 <= ny < n:
-            if board[nx][ny] == current_color and not visited[nx][ny]:
+            if not visited[nx][ny] and board[nx][ny] == cur_color:
                 visited[nx][ny] = True
                 dfs(nx,ny)
 
-    return cnt1
 
-
-res = []
 for i in range(n):
     for j in range(n):
 
         if not visited[i][j]:
-            visited[i][j] = True
             dfs(i,j)
             cnt1 += 1
 
-res.append(cnt1)
+visited = [[False] * n for _ in range(n)]
+
 
 for i in range(n):
     for j in range(n):
@@ -55,17 +52,16 @@ for i in range(n):
         if board[i][j] == 'G':
             board[i][j] = 'R'
 
-visited = [[False] * n for _ in range(n)]
 
 for i in range(n):
     for j in range(n):
 
         if not visited[i][j]:
-            visited[i][j] = True
             dfs(i,j)
             cnt2 += 1
 
-res.append(cnt2)
+print(cnt1, cnt2)
 
-print(*res)
+
+
 
