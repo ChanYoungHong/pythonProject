@@ -5,13 +5,14 @@ input = sys.stdin.readline
 dx = [1,-1,0,0]
 dy = [0,0,1,-1]
 
+
+
 def dfs(x,y):
 
     global cnt
     cnt += 1
 
     for i in range(4):
-
         nx = x + dx[i]
         ny = y + dy[i]
 
@@ -21,12 +22,15 @@ def dfs(x,y):
                 dfs(nx,ny)
 
     return cnt
-cnt = 0
+
 
 n = int(input())
 board = [list(map(int, input().rstrip())) for _ in range(n)]
 
+
+cnt = 0
 res = []
+
 for i in range(n):
     for j in range(n):
 
@@ -37,5 +41,9 @@ for i in range(n):
 
 print(len(res))
 res.sort()
-for i in res:
-    print(i+1)
+for z in res:
+    print(z)
+
+
+
+
