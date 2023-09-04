@@ -11,56 +11,38 @@ input = sys.stdin.readline
 
 n = int(input())
 
-save_Key = []
-# for _ in range(n):
-#
-#     sKey = input().rstrip()
-#     if sKey[0] not in save_Key:
-#         save_Key.append(sKey[0])
-#
-#     # 첫 글자가 단축키로 저장이 되어 있다면
-#     elif sKey[0] in save_Key:
-#
-#         # 모든 단어 중에서 안 된 단어를 저장해라
-#         for i in sKey:
-#             if i not in save_Key:
-#                 save_Key.append(i)
-#
-#     print(save_Key)
-
+save_key = []
 for _ in range(n):
-    Key = list(map(str, input().rstrip().split()))
-    print('Key : ', Key)
 
-    for i in range(len(Key)):
-        if Key[i][0].upper() not in save_Key:
-            save_Key.append(Key[i][0].upper())
-            Key[i] = '[' + Key[i][0] + ']' + Key[i][1:]
-            print(' '.join(Key))
+    word = list(input().split())
+
+    for i in range(len(word)):
+
+        if word[i][0].upper() not in save_key:
+            save_key.append(word[i][0].upper())
+            word[i] = '[' + word[i][0] + ']' + word[i][1:]
+            print(' '.join(word))
             break
 
     else:
 
-        print('len(Key) : ', len(Key))
-
-        for j in range(len(Key)):
+        for z in range(len(word)):
             flag = False
-            for k in range(len(Key[j])):
 
-                print('len(Key[j]) : ', len(Key[j]))
+            for k in range(len(word[z])):
 
-                if Key[j][k].upper() not in save_Key:
-                    save_Key.append(Key[j][k].upper())
-                    print('save_Key : ', save_Key)
+                if word[z][k].upper() not in save_key:
+                    save_key.append(word[z][k].upper())
                     flag = True
-                    Key[j] = Key[j][:k] + '[' + Key[j][k] + ']' + Key[j][k+1:]
-                    print('Key[j][:k] : ', Key[j][:k])
-                    print('Key[j][:k]222 : ', Key[j][k])
-                    print('Key[j][:k]3333 : ', Key[j][k+1:])
-                    print(' '.join(Key))
+                    word[z] = word[z][:k] + '[' + word[z][k] + ']' + word[z][k+1:]
+                    print(' '.join(word))
                     break
+
             if flag:
                 break
 
         else:
-            print(*Key)
+            print(*word)
+
+
+
