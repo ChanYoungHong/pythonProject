@@ -3,22 +3,20 @@ import sys
 input = sys.stdin.readline
 
 n = int(input())
-
-fileDict = {}
-ans = []
-
+test_dict = {}
 for _ in range(n):
     word = input().rstrip().split('.')
-    ans.append(word[1])
 
-for i in ans:
-    if i not in fileDict:
-        fileDict[i] = 0
-    fileDict[i] += 1
+    for i in word:
 
-ddic = sorted(fileDict.items())
+        if word[1] not in test_dict:
+            test_dict[word[1]] = 0
+    test_dict[word[1]] += 1
 
-print(ddic)
+# print(test_dict)
 
-for a,b in ddic.items():
+test_dict = sorted(test_dict.items())
+
+for a,b in test_dict:
     print(a,b)
+
