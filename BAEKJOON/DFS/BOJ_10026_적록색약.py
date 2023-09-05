@@ -1,50 +1,38 @@
 import sys
-sys.setrecursionlimit(10000)  # 예: 최대 재귀 호출 스택 깊이를 10000으로 설정
-from collections import deque
+sys.setrecursionlimit(10000)
 
-'''
-1. 알고리즘 - BFS를 사용하기 + 
-1-1 정상인인 경우 1개
-1-2 적록색약인 경우 1개
-
-2. 시간복잡도 - O(V+E)
-3. 배열 - 
-'''
+input = sys.stdin.readline
 
 n = int(input())
-board = [list(input()) for _ in range(n)]
-visited = [[False] * n for _ in range(n)]
+board = [list(input().rstrip()) for _ in range(n)]
 
-dx = [1,-1,0,0]
+dx = [-1,1,0,0]
 dy = [0,0,1,-1]
 
-cnt1 = 0
-cnt2 = 0
-
+visited = [[False] * n for _ in range(n)]
 
 def dfs(x,y):
 
     cur_color = board[x][y]
 
     for i in range(4):
+
         nx = x + dx[i]
         ny = y + dy[i]
-
         if 0 <= nx < n and 0 <= ny < n:
-            if not visited[nx][ny] and board[nx][ny] == cur_color:
+            if cur_color == board[nx][ny] and not visited[nx][ny]:
                 visited[nx][ny] = True
                 dfs(nx,ny)
 
-
+cnt1 = 0
 for i in range(n):
     for j in range(n):
 
-        if not visited[i][j]:
+        if visited[i][j] == False:
             dfs(i,j)
             cnt1 += 1
 
-visited = [[False] * n for _ in range(n)]
-
+print(cnt1)
 
 for i in range(n):
     for j in range(n):
@@ -52,16 +40,14 @@ for i in range(n):
         if board[i][j] == 'G':
             board[i][j] = 'R'
 
+visited = [[False] * n for _ in range(n)]
 
+cnt2 = 0
 for i in range(n):
     for j in range(n):
 
-        if not visited[i][j]:
+        if visited[i][j] == False:
             dfs(i,j)
             cnt2 += 1
 
-print(cnt1, cnt2)
-
-
-
-
+print(cnt2)
