@@ -1,6 +1,7 @@
 import sys
 
 input = sys.stdin.readline
+
 '''
 1. 알고리즘 - 
 2. 시간복잡도 - 1000 사이라 dp 사용하면 충분
@@ -17,4 +18,6 @@ for i in range(1, n):
 
         dp[j] += dp[j-1]
 
-print(sum(dp)%10007)
+print(sum(dp) % 10007)
+
+
