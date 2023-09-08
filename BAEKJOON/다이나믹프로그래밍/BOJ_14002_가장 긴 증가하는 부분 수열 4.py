@@ -13,19 +13,9 @@ for i in range(n):
         if arr[i] > arr[j]:
             dp[i] = max(dp[i], dp[j] + 1)
 
-# ans = []
-# temp = 5
-# for j in range(n-1, -1,-1):
-#
-#     if dp[j] > dp[j-1]:
-#         ans.append(arr[j])
-#         temp += 1
-#
-# print(ans)
 
 order = max(dp)
 res = []
-
 for i in range(n-1, -1, -1):
 
     if dp[i] == order:
