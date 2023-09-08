@@ -15,53 +15,28 @@ input = sys.stdin.readline
 '''
 
 n,m = map(int, input().split())
-# board = [[0] * m for _ in range(n)]
-
-# graph = []
-#
-# for i in range(n):
-#     a = input().rstrip()
-#     graph.append(a)
-#
-# for i in range(n):
-#     for j in range(m):
-#
-#         if graph[i][j] == 'c':
-#             board[i][j] = 0
-#         elif graph[i][j] == '.':
-#             board[i][j] = -1
-#
-# move = 0
-# for i in range(n):
-#     for j in range(m-1):
-#
-#         if board[i][j] == move and move == n:
-#             board[i][j+1] = board[i][j] + 1
-#             move += 1
-#
-# print(board)
-
 board = [list(input().rstrip()) for _ in range(n)]
 
-cloud_time = 1
+
 is_cloud = False
+t_cloud = 0
 
 for i in range(n):
     for j in range(m):
 
-
         if board[i][j] == 'c':
             board[i][j] = 0
             is_cloud = True
-            cloud_time = 1
+            t_cloud = 1
 
         elif board[i][j] == '.' and is_cloud == False:
             board[i][j] = -1
 
         elif board[i][j] == '.' and is_cloud == True:
-            board[i][j] = cloud_time
-            cloud_time += 1
+            board[i][j] = t_cloud
+            is_cloud = True
+            t_cloud += 1
 
-    cloud_time = 1
+    t_cloud = 1
     is_cloud = False
     print(*board[i])
