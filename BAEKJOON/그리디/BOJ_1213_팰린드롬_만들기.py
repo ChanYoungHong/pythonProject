@@ -1,5 +1,5 @@
 import sys
-import collections
+from collections import Counter
 
 input = sys.stdin.readline
 
@@ -13,24 +13,25 @@ input = sys.stdin.readline
 '''
 
 word = input().rstrip()
-check_word = collections.Counter(word)
+check_word = Counter(word)
+
+# print(check_word)
 
 cnt = 0
 result = ''
 mid = ''
 
-print(check_word)
-for k, v in list(check_word.items()):
+for k,v in check_word.items():
 
-    if v % 2 == 1: # 홀수라면
+    if v % 2 == 1:
         cnt += 1
-        mid = k # 중간에 들어갈 값으로 저장
-        if cnt >= 2: # 홀수가 2개이상이면 팰린드롬이 될 수 없다 !!
+        mid = k
+
+        if cnt >= 2:
             print("I'm Sorry Hansoo")
             exit()
 
-for k, v in sorted(check_word.items()):
+for k,v in sorted(check_word.items()):
     result += (k * (v // 2))
 
 print(result + mid + result[::-1])
-print(result[::-1])
