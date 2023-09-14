@@ -9,25 +9,25 @@ input = sys.stdin.readline
 '''
 
 n = int(input())
-arr = dict()
+book_n = {}
 
-for i in range(n):
+for z in range(n):
 
-    a = input().rstrip()
+    word = input().rstrip()
 
-    if a in arr:
-        arr[a] += 1
+    if word in book_n:
+        book_n[word] += 1
     else:
-        arr[a] = 1
+        book_n[word] = 1
 
-ans = sorted(arr.items())
 
-max = 0
-for i,j in ans:
+ans = sorted(book_n.items())
 
-    if max < j:
-        max = j
-        maxim = i
+big = 0
+for k,v in ans:
 
-print(maxim)
+    if big < v:
+        big = v
+        maxxx = k
 
+print(maxxx)
