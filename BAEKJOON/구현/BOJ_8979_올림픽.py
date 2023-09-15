@@ -2,29 +2,30 @@ import sys
 
 input = sys.stdin.readline
 
-n, m = map(int, input().split())
+n, k = map(int, input().split())
 
-tempArr = []
-for i in range(n):
+standard = []
+rest = []
+for _ in range(n):
+    team = list(map(int, input().split()))
 
-    graph = list(map(int, input().split()))
-
-    if graph[0] != m:
-        tempArr.append(graph)
+    if team[0] == k:
+        standard = team
     else:
-        standard = graph
+        rest.append(team)
 
-cnt = 1
-for i in range(len(tempArr)):
+rank = 1
+for i in range(len(rest)):
 
-    if tempArr[i][1] > standard[1]:
-        cnt += 1
-    elif tempArr[i][1] == standard[1]:
-        if tempArr[i][2] > standard[2]:
-            cnt += 1
-        elif tempArr[i][2] == standard[2]:
-            if tempArr[i][3] > standard[3]:
-                cnt += 1
+    if rest[i][1] > standard[1]:
+        rank += 1
 
-print(cnt)
+    elif rest[i][1] == standard[1]:
+        if rest[i][2] > standard[2]:
+            rank += 1
 
+        elif rest[i][2] == standard[2]:
+            if rest[i][3] > standard[3]:
+                rank += 1
+
+print(rank)
