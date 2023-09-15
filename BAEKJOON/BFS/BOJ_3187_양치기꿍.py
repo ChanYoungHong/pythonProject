@@ -3,54 +3,56 @@ from collections import deque
 
 input = sys.stdin.readline
 
+'''
+1. 양 > 늑대 -> 늑대가 잡아 먹힌다.
+2. 양 <= 늑대 -> 양이 잡아 먹힌다.
+3. 늑대 - v, 양 - k라고 함
+4.
+
+'''
+dx = [1, -1, 0, 0]
+dy = [0, 0, 1, -1]
 
 
-dx = [-1,1,0,0]
-dy = [0,0,-1,1]
-
-wolf = 0
-sheep = 0
-
-def bfs(x,y):
-
+def bfs(x, y):
     global wolf, sheep
 
     q = deque()
-    q.append((x,y))
-    visited[x][y] = 1
+    q.append((x, y))
+    visited[x][y] = True
+
     while q:
 
-        x,y = q.popleft()
+        x, y = q.popleft()
 
-        if graph[x][y] == 'v':
+        if board[x][y] == 'v':
             wolf += 1
 
-        if graph[x][y] == 'k':
+        if board[x][y] == 'k':
             sheep += 1
 
         for i in range(4):
-
             nx = x + dx[i]
             ny = y + dy[i]
 
-            if 0 <= nx < n and 0 <= ny < m:
-                if graph[nx][ny] != '#' and visited[nx][ny] == False:
-                    visited[nx][ny] = 1
-                    q.append((nx,ny))
+            if 0 <= nx < r and 0 <= ny < c:
+                if board[nx][ny] != '#' and visited[nx][ny] == False:
+                    visited[nx][ny] = True
+                    q.append((nx, ny))
 
 
-n, m = map(int, input().split())
-graph = [list(input().rstrip()) for _ in range(n)]
-visited = [[False] * m for _ in range(n)]
+wolf, sheep = 0, 0
+r, c = map(int, input().split())
+board = [list(input().rstrip()) for _ in range(r)]
+visited = [[False] * c for _ in range(r)]
 
 tem1 = 0
 tem2 = 0
+for i in range(r):
+    for j in range(c):
 
-for i in range(n):
-    for j in range(m):
-
-        if graph[i][j] != '#' and visited[i][j] == False:
-            bfs(i,j)
+        if board[i][j] == '#' and visited[i][j] == False:
+            bfs(i, j)
 
             if wolf >= sheep:
                 sheep = 0
@@ -60,8 +62,8 @@ for i in range(n):
             tem1 += sheep
             tem2 += wolf
 
-            sheep = 0
             wolf = 0
+            sheep = 0
 
-bfs(0,0)
+bfs(0, 0)
 print(tem1, tem2)
