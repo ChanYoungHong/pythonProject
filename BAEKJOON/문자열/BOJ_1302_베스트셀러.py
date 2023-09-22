@@ -9,25 +9,29 @@ input = sys.stdin.readline
 '''
 
 n = int(input())
-book_n = {}
 
-for z in range(n):
-
+temp = {}
+for _ in range(n):
     word = input().rstrip()
 
-    if word in book_n:
-        book_n[word] += 1
-    else:
-        book_n[word] = 1
+    if word not in temp:
+        temp[word] = 0
+    temp[word] += 1
 
+# print(temp)
 
-ans = sorted(book_n.items())
+# d1 = sorted(temp.items())
+# print(d1)
 
+print(temp)
+d2 = sorted(temp.items())
+print(temp)
+# print(d2)
 big = 0
-for k,v in ans:
+for k,v in d2:
 
-    if big < v:
+    if v > big:
         big = v
-        maxxx = k
+        maxxxx = k
 
-print(maxxx)
+print(maxxxx)
