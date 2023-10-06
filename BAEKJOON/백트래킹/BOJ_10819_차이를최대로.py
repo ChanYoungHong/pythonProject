@@ -1,5 +1,6 @@
 import sys
-from itertools import permutations
+# from itertools import permutations
+from itertools import combinations
 
 input = sys.stdin.readline
 
@@ -7,12 +8,17 @@ input = sys.stdin.readline
 n = int(input())
 arr = list(map(int, input().split()))
 
-res = 0
-for per in permutations(arr):
+test = combinations(arr, 4)
 
-    tmp = 0
-    for i in range(n-1):
-        tmp += abs(per[i] - per[i+1])
-    res = max(res, tmp)
+for zz in test:
+    print(zz)
 
-print(res)
+# res = 0
+# for per in permutations(arr):
+#
+#     tmp = 0
+#     for i in range(n-1):
+#         tmp += abs(per[i] - per[i+1])
+#     res = max(res, tmp)
+
+# print(res)

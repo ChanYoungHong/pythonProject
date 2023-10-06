@@ -3,10 +3,9 @@ import sys
 input = sys.stdin.readline
 
 n = int(input())
+answer = 0
 
 stand = list(input().rstrip())
-# print(stand)
-answer = 0
 
 for _ in range(n-1):
 
@@ -15,6 +14,7 @@ for _ in range(n-1):
     cnt = 0
 
     for i in word:
+
         if i in compare:
             compare.remove(i)
         else:
