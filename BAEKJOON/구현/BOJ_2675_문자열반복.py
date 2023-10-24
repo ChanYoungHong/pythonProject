@@ -2,11 +2,13 @@ import sys
 
 input = sys.stdin.readline
 
-t = int(input())
-for _ in range(t):
-    a,b = input().rstrip().split()
-    ans = ''
-    for i in b:
-        ans += int(a)*i
+n = int(input())
 
-    print(ans)
+for _ in range(n):
+
+    num, word = input().split()
+    answer = ''
+
+    for i in word:
+        answer += i*int(num)
+    print(answer)
