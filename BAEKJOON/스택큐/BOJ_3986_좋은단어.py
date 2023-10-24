@@ -2,30 +2,29 @@ import sys
 
 input = sys.stdin.readline
 
+
 n = int(input())
 
-'''
--> 교차 하지 않도록, 선을 잇는 방법은 ?? 
-'''
-
 cnt = 0
+for _ in range(n):
 
-for i in range(n):
     word = input().rstrip()
     arr = []
 
-    for j in range(len(word)):
+    for k in range(len(word)):
 
         if arr:
-            if word[j] == arr[-1]:
+
+            if word[k] == arr[-1]:
                 arr.pop()
             else:
-                arr.append(word[j])
+                arr.append(word[k])
         else:
-            arr.append(word[j])
+            arr.append(word[k])
 
     if not arr:
         cnt += 1
 
 print(cnt)
 
+print(cnt)
