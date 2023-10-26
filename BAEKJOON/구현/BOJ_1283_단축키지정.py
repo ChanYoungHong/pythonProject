@@ -2,47 +2,41 @@ import sys
 
 input = sys.stdin.readline
 
-'''
-1. 첫 글자자가 이미 단축키로 되어 있는지 확인
-2. 첫 글자가 되어 있다면, 안 된 것이 있다면 단축키로 지정한다.
-3. 아무것도 단축키로 지정 못 하면, 그냥 놔두고 
-4. 1번 ~ N번째 옵션까지 차례대로 적용
-'''
-
 n = int(input())
 
-save_key = []
+exist = []
 for _ in range(n):
 
-    word = list(input().split())
+    word = input().rstrip().split(' ')
+    flag = False
 
     for i in range(len(word)):
 
-        if word[i][0].upper() not in save_key:
-            save_key.append(word[i][0].upper())
+        if word[i][0].upper() not in exist:
+            exist.append(word[i][0].upper())
+            flag = True
             word[i] = '[' + word[i][0] + ']' + word[i][1:]
             print(' '.join(word))
+            # 첫 글자를 발견한 후 루프를 종료하고 다음 단어로 이동하도록 합니다.
             break
 
-    else:
+    if not flag:
 
-        for z in range(len(word)):
-            flag = False
+        for i in range(len(word)):
+            check = False
+            for j in range(len(word[i])):
 
-            for k in range(len(word[z])):
-
-                if word[z][k].upper() not in save_key:
-                    save_key.append(word[z][k].upper())
+                if word[i][j].upper() not in exist:
+                    exist.append(word[i][j].upper())
                     flag = True
-                    word[z] = word[z][:k] + '[' + word[z][k] + ']' + word[z][k+1:]
+                    check = True
+                    word[i] = word[i][:j] + '[' + word[i][j] + ']' + word[i][j + 1:]
                     print(' '.join(word))
+                    # 내부 루프를 종료하고 바깥 루프로 넘어갈 때 사용 됨
                     break
 
-            if flag:
+            if check == True:
                 break
 
-        else:
-            print(*word)
-
-
-
+    if not flag:
+        print(' '.join(word))
