@@ -7,15 +7,13 @@ word = word.upper()
 
 arr = list(set(word))
 
-print('arr : ', arr)
-check = []
+answer = []
 for i in arr:
-    check.append(word.count(i))
+    answer.append(word.count(i))
 
-print('check : ', check)
-if check.count(max(check)) > 1:
+
+if answer.count(max(answer)) > 1:
     print('?')
-
 else:
-    max_index = check.index(max(check))
+    max_index = answer.index(max(answer))
     print(arr[max_index])
