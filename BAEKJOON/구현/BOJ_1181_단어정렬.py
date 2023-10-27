@@ -2,25 +2,24 @@ import sys
 
 input = sys.stdin.readline
 
+
 n = int(input())
 
-word = []
-for i in range(n):
-    word.append(input().rstrip())
-
-result = list(set(word))
-
-answer = []
-for j in result:
-    answer.append((len(j), j))
+arr = set()
+for _ in range(n):
+    word = input().rstrip()
+    arr.add(word)
 
 
+ans = []
+for i in arr:
+    ans.append((len(i), i))
 
-# print(word)
-answer.sort()
-# print(answer)
+# print(ans)
 
-# answer = sorted(answer, lambda=key x:x[0])
+ans.sort()
 
-for i,j in answer:
-    print(j)
+for a,b in ans:
+    print(b)
+
+
