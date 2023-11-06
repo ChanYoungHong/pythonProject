@@ -2,19 +2,14 @@ import sys
 
 input = sys.stdin.readline
 
-'''
-1. 알고리즘 - 
-2. 시간복잡도 - 
-3. 배열 -  
-'''
-
-n, m = map(int, input().split())
+n,k = map(int, input().split())
 arr = list(map(int, input().split()))
 
-dp = [sum(arr[:m])]
+dp = [0] * n
+dp = [sum(arr[:k])]
 
-for i in range(n-m):
-    dp.append(dp[i] + arr[i+m] - arr[i])
+
+for i in range(n-k):
+    dp.append(dp[i] + arr[i+k] - arr[i])
 
 print(max(dp))
-
