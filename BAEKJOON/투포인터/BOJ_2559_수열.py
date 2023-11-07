@@ -4,12 +4,13 @@ input = sys.stdin.readline
 
 n,k = map(int, input().split())
 arr = list(map(int, input().split()))
+each = sum(arr[:k])
 
-dp = [0] * n
-dp = [sum(arr[:k])]
+maxv = each
 
+for i in range(k, n):
+    each += arr[i]
+    each -= arr[i-k]
+    maxv = max(maxv, each)
 
-for i in range(n-k):
-    dp.append(dp[i] + arr[i+k] - arr[i])
-
-print(max(dp))
+print(maxv)
