@@ -21,11 +21,11 @@ while True:
         #         result.append(value)
 
         for i in check_board:
+
             if len(result) == 0:
                 result.append(i)
             elif result[-1] != i:
                 result.append(i)
-
 
         result.append('$')
         print(*result)
