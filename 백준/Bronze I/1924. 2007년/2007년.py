@@ -9,40 +9,15 @@ input = sys.stdin.readline
 
 '''
 
-days = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT']
+a = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT']
+b = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
-a = [1,3,5,7,8,10,12]
-b = [4,6,9,11]
-c = [2]
+x,y = map(int, input().split())
+day = 0
 
+for i in range(0, x - 1):
+    day += b[i]
 
-x,y = list(map(int, input().split()))
+result = (day + y) % 7
 
-
-# 1 2 3
-total = 0
-rest = 0
-for i in range(1, x+1):
-
-    if i in a:
-        # print('a+i : ', i)
-        total += 31
-        rest = 31 - y
-    elif i in b:
-        # print('b+i : ', i)
-        total += 30
-        rest = 30 - y
-    else:
-        # print('c+i : ', i)
-        total += 28
-        rest = 28 - y
-
-    if x == i:
-        if i in a:
-            total = (total - rest)
-        elif i in b:
-            total = (total - rest)
-        else:
-            total = (total - rest)
-
-print(days[total%7])
+print(a[result])
