@@ -23,7 +23,6 @@ N,B = map(int, input().split())
 
 answer = ''
 while N:
-    answer += str()
     answer += str(system[N%B])
     N //= B
 
