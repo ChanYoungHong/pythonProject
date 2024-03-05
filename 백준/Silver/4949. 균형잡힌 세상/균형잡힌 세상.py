@@ -32,7 +32,11 @@ while True:
                 break
 
 
+
     if len(temp) == 0:
         print('yes')
     else:
         print('no')
+
+
+
