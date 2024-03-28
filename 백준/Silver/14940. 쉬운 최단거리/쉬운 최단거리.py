@@ -55,15 +55,18 @@ dx = [-1, 1, 0, 0]
 dy = [0, 0, 1, -1]
 visited = [[-1] * m for _ in range(n)]
 
-def bfs(a,b):
-    q = deque()
+# print(visited)
 
-    # 시작점을 큐에 추가하고 방문 표시 및 거리 초기화
+def bfs(a,b):
+
+
+    q = deque()
     q.append((a,b))
     visited[a][b] = 0
 
     while q:
-        x, y = q.popleft()
+
+        x,y = q.popleft()
 
         for i in range(4):
             nx = x + dx[i]
@@ -74,20 +77,22 @@ def bfs(a,b):
                     visited[nx][ny] = 0
                 elif board[nx][ny] == 1:
                     visited[nx][ny] = visited[x][y] + 1
-                    q.append((nx, ny))
+                    q.append((nx,ny))
 
 
 for i in range(n):
     for j in range(m):
+
         if board[i][j] == 2 and visited[i][j] == -1:
             bfs(i,j)
 
-# 각 칸의 최단 거리 출력
+
 for i in range(n):
     for j in range(m):
+
         if board[i][j] == 0:
-            print(0, end=" ")
+            print(0, end=' ')
         else:
-            print(visited[i][j], end=" ")
+            print(visited[i][j], end=' ')
     print()
 
